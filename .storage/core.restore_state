@@ -13,77 +13,77 @@
                     "user_id": "7a446dd8685b4ba2a5d4f2c15a558437",
                     "friendly_name": "snakuzzo"
                 },
-                "last_changed": "2020-09-28T14:11:19.659395+00:00",
-                "last_updated": "2020-09-28T14:11:19.659395+00:00",
+                "last_changed": "2020-09-28T15:17:25.018957+00:00",
+                "last_updated": "2020-09-28T15:17:25.018957+00:00",
                 "context": {
-                    "id": "7b137a49019411eb87a989bebb88875a",
+                    "id": "b69d5445019d11eb9c8da3166ec669a5",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+            "last_seen": "2020-09-28T15:17:31.250240+00:00"
         },
         {
             "state": {
                 "entity_id": "automation.shellies_announce",
                 "state": "on",
                 "attributes": {
-                    "last_triggered": null,
+                    "last_triggered": "2020-09-28T14:11:21.023627+00:00",
                     "mode": "single",
                     "current": 0,
                     "id": "1552268240479",
                     "friendly_name": "Shellies Announce"
                 },
-                "last_changed": "2020-09-28T14:11:20.097115+00:00",
-                "last_updated": "2020-09-28T14:11:20.097115+00:00",
+                "last_changed": "2020-09-28T15:17:25.272761+00:00",
+                "last_updated": "2020-09-28T15:17:25.272761+00:00",
                 "context": {
-                    "id": "7b5644b6019411eb9c216fd0721f393b",
+                    "id": "b6c40dff019d11eb8ecf777139c62b94",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+            "last_seen": "2020-09-28T15:17:31.250240+00:00"
         },
         {
             "state": {
                 "entity_id": "automation.sonoff_announce",
                 "state": "on",
                 "attributes": {
-                    "last_triggered": "2020-09-25T12:11:52.071747+00:00",
+                    "last_triggered": "2020-09-28T14:11:21.023982+00:00",
                     "mode": "single",
                     "current": 0,
                     "id": "1552268241231",
                     "friendly_name": "Sonoff Announce"
                 },
-                "last_changed": "2020-09-28T14:11:20.097252+00:00",
-                "last_updated": "2020-09-28T14:11:20.097252+00:00",
+                "last_changed": "2020-09-28T15:17:25.272968+00:00",
+                "last_updated": "2020-09-28T15:17:25.272968+00:00",
                 "context": {
-                    "id": "7b564a55019411eb8bba75092fd27150",
+                    "id": "b6c41651019d11eb92859fd877df0f6e",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+            "last_seen": "2020-09-28T15:17:31.250240+00:00"
         },
         {
             "state": {
                 "entity_id": "automation.system_set_custom_theme_at_startup",
                 "state": "on",
                 "attributes": {
-                    "last_triggered": null,
+                    "last_triggered": "2020-09-28T14:11:21.024454+00:00",
                     "mode": "single",
                     "current": 0,
                     "friendly_name": "System - Set Custom Theme at Startup"
                 },
-                "last_changed": "2020-09-28T14:11:20.097362+00:00",
-                "last_updated": "2020-09-28T14:11:20.097362+00:00",
+                "last_changed": "2020-09-28T15:17:25.273136+00:00",
+                "last_updated": "2020-09-28T15:17:25.273136+00:00",
                 "context": {
-                    "id": "7b564eb0019411eb8bda3b73dbfdfc8e",
+                    "id": "b6c41ced019d11eba7b169572a3081db",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+            "last_seen": "2020-09-28T15:17:31.250240+00:00"
         },
         {
             "state": {
@@ -93,15 +93,15 @@
                     "friendly_name": "Luce Camera",
                     "supported_features": 0
                 },
-                "last_changed": "2020-09-28T14:11:20.238526+00:00",
-                "last_updated": "2020-09-28T14:11:20.238526+00:00",
+                "last_changed": "2020-09-28T15:17:25.346724+00:00",
+                "last_updated": "2020-09-28T15:17:25.346724+00:00",
                 "context": {
-                    "id": "7b6bd8bf019411eb9d1845e792288967",
+                    "id": "b6cf57b3019d11eb8e2221b50dd956b4",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+            "last_seen": "2020-09-28T15:17:31.250240+00:00"
         },
         {
             "state": {
