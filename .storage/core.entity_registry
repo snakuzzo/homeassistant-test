@@ -496,7 +496,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "temperatura",
+                "original_name": "Temperatura",
                 "original_icon": null
             },
             {
@@ -1009,6 +1009,22 @@
                 "device_class": null,
                 "unit_of_measurement": null,
                 "original_name": "Sonoff Announce",
+                "original_icon": null
+            },
+            {
+                "entity_id": "input_boolean.termostato",
+                "config_entry_id": null,
+                "device_id": null,
+                "unique_id": "termostato",
+                "platform": "input_boolean",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": null,
                 "original_icon": null
             }
         ]

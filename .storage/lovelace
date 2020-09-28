@@ -7,7 +7,31 @@
             "views": [
                 {
                     "badges": [],
-                    "cards": [],
+                    "cards": [
+                        {
+                            "type": "thermostat",
+                            "entity": "climate.termostato"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.termostato_temperatura"
+                                },
+                                {
+                                    "entity": "input_boolean.termostato"
+                                },
+                                {
+                                    "entity": "switch.termostato_interruttore"
+                                },
+                                {
+                                    "entity": "input_number.temperatura"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Entit\u00e0"
+                        }
+                    ],
                     "path": "default_view",
                     "title": "Home"
                 }

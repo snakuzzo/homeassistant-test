@@ -13,77 +13,167 @@
                     "user_id": "7a446dd8685b4ba2a5d4f2c15a558437",
                     "friendly_name": "snakuzzo"
                 },
-                "last_changed": "2020-09-28T15:17:25.018957+00:00",
-                "last_updated": "2020-09-28T15:17:25.018957+00:00",
+                "last_changed": "2020-09-28T18:00:32.851580+00:00",
+                "last_updated": "2020-09-28T18:00:32.851580+00:00",
                 "context": {
-                    "id": "b69d5445019d11eb9c8da3166ec669a5",
+                    "id": "809e0fde01b411eba9aeab595e38244c",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T15:17:31.250240+00:00"
+            "last_seen": "2020-09-28T18:00:34.615958+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_number.temperatura",
+                "state": "20.0",
+                "attributes": {
+                    "initial": 20.0,
+                    "editable": false,
+                    "min": 18.0,
+                    "max": 30.0,
+                    "step": 1.0,
+                    "mode": "slider",
+                    "friendly_name": "Temperatura"
+                },
+                "last_changed": "2020-09-28T18:00:33.632833+00:00",
+                "last_updated": "2020-09-28T18:00:33.632833+00:00",
+                "context": {
+                    "id": "8115458601b411ebbcd5fbca3a3be534",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-28T18:00:34.615958+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.termostato",
+                "state": "off",
+                "attributes": {
+                    "editable": false
+                },
+                "last_changed": "2020-09-28T18:00:33.709383+00:00",
+                "last_updated": "2020-09-28T18:00:33.709383+00:00",
+                "context": {
+                    "id": "8120f3d801b411ebb48f11136c0d08b1",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-28T18:00:34.615958+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "switch.termostato_interruttore",
+                "state": "off",
+                "attributes": {
+                    "friendly_name": "Termostato Interruttore",
+                    "assumed_state": true
+                },
+                "last_changed": "2020-09-28T18:00:33.730549+00:00",
+                "last_updated": "2020-09-28T18:00:33.730549+00:00",
+                "context": {
+                    "id": "81242e8601b411eb83af9d7d3cf0c11c",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-28T18:00:34.615958+00:00"
         },
         {
             "state": {
                 "entity_id": "automation.shellies_announce",
                 "state": "on",
                 "attributes": {
-                    "last_triggered": "2020-09-28T14:11:21.023627+00:00",
+                    "last_triggered": "2020-09-28T17:59:18.896724+00:00",
                     "mode": "single",
                     "current": 0,
                     "id": "1552268240479",
                     "friendly_name": "Shellies Announce"
                 },
-                "last_changed": "2020-09-28T15:17:25.272761+00:00",
-                "last_updated": "2020-09-28T15:17:25.272761+00:00",
+                "last_changed": "2020-09-28T18:00:33.734508+00:00",
+                "last_updated": "2020-09-28T18:00:33.734508+00:00",
                 "context": {
-                    "id": "b6c40dff019d11eb8ecf777139c62b94",
+                    "id": "8124c8f801b411eb9848a9ab21f35ff7",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T15:17:31.250240+00:00"
+            "last_seen": "2020-09-28T18:00:34.615958+00:00"
         },
         {
             "state": {
                 "entity_id": "automation.sonoff_announce",
                 "state": "on",
                 "attributes": {
-                    "last_triggered": "2020-09-28T14:11:21.023982+00:00",
+                    "last_triggered": "2020-09-28T17:59:18.896967+00:00",
                     "mode": "single",
                     "current": 0,
                     "id": "1552268241231",
                     "friendly_name": "Sonoff Announce"
                 },
-                "last_changed": "2020-09-28T15:17:25.272968+00:00",
-                "last_updated": "2020-09-28T15:17:25.272968+00:00",
+                "last_changed": "2020-09-28T18:00:33.734705+00:00",
+                "last_updated": "2020-09-28T18:00:33.734705+00:00",
                 "context": {
-                    "id": "b6c41651019d11eb92859fd877df0f6e",
+                    "id": "8124d0f001b411eb83bc996695d6fb65",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T15:17:31.250240+00:00"
+            "last_seen": "2020-09-28T18:00:34.615958+00:00"
         },
         {
             "state": {
                 "entity_id": "automation.system_set_custom_theme_at_startup",
                 "state": "on",
                 "attributes": {
-                    "last_triggered": "2020-09-28T14:11:21.024454+00:00",
+                    "last_triggered": "2020-09-28T17:59:18.897166+00:00",
                     "mode": "single",
                     "current": 0,
                     "friendly_name": "System - Set Custom Theme at Startup"
                 },
-                "last_changed": "2020-09-28T15:17:25.273136+00:00",
-                "last_updated": "2020-09-28T15:17:25.273136+00:00",
+                "last_changed": "2020-09-28T18:00:33.734975+00:00",
+                "last_updated": "2020-09-28T18:00:33.734975+00:00",
                 "context": {
-                    "id": "b6c41ced019d11eba7b169572a3081db",
+                    "id": "8124db5e01b411eb980363e09f28dc33",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T15:17:31.250240+00:00"
+            "last_seen": "2020-09-28T18:00:34.615958+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "climate.termostato",
+                "state": "off",
+                "attributes": {
+                    "hvac_modes": [
+                        "heat",
+                        "off"
+                    ],
+                    "min_temp": 15.0,
+                    "max_temp": 21.0,
+                    "preset_modes": [
+                        "none",
+                        "away"
+                    ],
+                    "current_temperature": null,
+                    "temperature": 17.0,
+                    "hvac_action": "off",
+                    "preset_mode": "none",
+                    "friendly_name": "Termostato",
+                    "supported_features": 17
+                },
+                "last_changed": "2020-09-28T18:00:33.736049+00:00",
+                "last_updated": "2020-09-28T18:00:33.736049+00:00",
+                "context": {
+                    "id": "8125055201b411ebab34217d180cf856",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-28T18:00:34.615958+00:00"
         },
         {
             "state": {
@@ -93,15 +183,15 @@
                     "friendly_name": "Luce Camera",
                     "supported_features": 0
                 },
-                "last_changed": "2020-09-28T15:17:25.346724+00:00",
-                "last_updated": "2020-09-28T15:17:25.346724+00:00",
+                "last_changed": "2020-09-28T18:00:33.763005+00:00",
+                "last_updated": "2020-09-28T18:00:33.763005+00:00",
                 "context": {
-                    "id": "b6cf57b3019d11eb8e2221b50dd956b4",
+                    "id": "8129229001b411eb9b57c957327cae41",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T15:17:31.250240+00:00"
+            "last_seen": "2020-09-28T18:00:34.615958+00:00"
         },
         {
             "state": {
@@ -141,29 +231,6 @@
                 "last_updated": "2020-09-26T18:02:13.543369+00:00",
                 "context": {
                     "id": "67cee8a0002211eb96dce59fc5f264a7",
-                    "parent_id": null,
-                    "user_id": null
-                }
-            },
-            "last_seen": "2020-09-26T18:02:14.510250+00:00"
-        },
-        {
-            "state": {
-                "entity_id": "input_number.temperatura",
-                "state": "25.0",
-                "attributes": {
-                    "initial": 25.0,
-                    "editable": false,
-                    "min": 16.0,
-                    "max": 30.0,
-                    "step": 1.0,
-                    "mode": "box",
-                    "friendly_name": "temperatura"
-                },
-                "last_changed": "2020-09-26T18:02:13.543542+00:00",
-                "last_updated": "2020-09-26T18:02:13.543542+00:00",
-                "context": {
-                    "id": "67ceef50002211eb982f5728451194aa",
                     "parent_id": null,
                     "user_id": null
                 }
