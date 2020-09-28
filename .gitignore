@@ -21,7 +21,7 @@ known_devices.yaml
 phue.conf
 #plex.conf
 pyozw.sqlite
-#secrets.yaml
+secrets.yaml
 tradfri.conf
 
 # Temporary files
