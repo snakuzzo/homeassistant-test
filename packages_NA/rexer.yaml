@@ -1,0 +1,15 @@
+automation:
+
+- alias: prova_brutale
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d00019faca7
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.xiaomi_gateway_alarm
+    state: 'triggered'
+  action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.shelly_shsw_25_b94f3a_2

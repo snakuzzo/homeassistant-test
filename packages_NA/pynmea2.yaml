@@ -1,0 +1,99 @@
+sensor:
+- platform: mqtt
+  name: "pymea_latitude"
+  state_topic: "tele/pymeagps/SENSOR"
+  value_template: "{{ value_json.latitude }}"
+  availability_topic: "tele/pymeagps/LWT"
+  unit_of_measurement: "°"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+
+- platform: mqtt
+  name: "pymea_longitude"
+  state_topic: "tele/pymeagps/SENSOR"
+  value_template: "{{ value_json.longitude }}"
+  availability_topic: "tele/pymeagps/LWT"
+  unit_of_measurement: "°"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+
+automation:
+
+- alias: device_tracking
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.pymea_latitude, sensor.pymea_longitude
+  action:
+    service: device_tracker.see
+    data_template:
+      dev_id: serra
+      location_name: myzone
+      gps:
+        - "{{ states('sensor.pymea_latitude') | float | round(3) }}"
+        - "{{ states('sensor.pymea_longitude') | float | round(3) }}"
+
+- alias: set_new_home
+  initial_state: true
+  trigger:
+  - entity_id: sensor.pymea_latitude
+    platform: state
+  - entity_id: sensor.pymea_longitude
+    platform: state
+  condition: []
+  action:
+  - data_template:
+      dev_id: serra
+      gps:
+      - "{{ states('sensor.pymea_latitude') | float }}"
+      - "{{ states('sensor.pymea_longitude') | float }}"
+      gps_accuracy: 50
+    service: device_tracker.see
+
+- alias: 'update_home'
+  trigger:
+  - platform: state
+    entity_id: switch.update_zone
+    from: 'off'
+    to: 'on'
+  action:
+  - service: shell_command.update_zone
+  - delay: '00:00:02'
+  - service: zone.reload
+  - service: switch.turn_off
+    entity_id: switch.update_zone
+
+switch:
+  - platform: template
+    switches:
+      update_zone:
+        friendly_name: 'Aggiorna Zona'
+        value_template: '{{ is_state("input_boolean.update_zone_state","on") }}'
+        turn_on:
+          service: input_boolean.turn_on
+          entity_id: input_boolean.update_zone_state
+        turn_off:
+          service: input_boolean.turn_off
+          entity_id: input_boolean.update_zone_state
+
+input_boolean:
+  update_zone_state:
+    name: update_zone_boolean
+
+device_tracker:
+  - platform: mqtt_json
+    devices:
+      serra: "tele/pymeagps/SENSOR"
+
+# aggiunta input number
+input_number:
+  radius:
+    name: New Radius
+    min: 0
+    max: 100
+    step: 1
+    mode: box
+
+# Aggiunto terzo parametro 
+shell_command:
+  update_zone: /Users/snake/.homeassistant/myscripts/update_zone.py {{ states('sensor.pymea_latitude') }} {{ states('sensor.pymea_longitude') }} {{ states('input_number.radius') | int }}

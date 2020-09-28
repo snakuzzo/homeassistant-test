@@ -1,0 +1,9 @@
+binary_sensor:
+
+- platform: mqtt
+  name: "Smarthome Status"
+  state_topic: "smarthome-prova-lwt"
+  payload_on: "online"
+  payload_off: "offline"
+  device_class: "connectivity"
+

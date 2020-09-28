@@ -1,0 +1,126 @@
+input_boolean:
+  prog1:
+    name: Prog1
+  prog2:
+    name: Prog2
+  prog3:
+    name: Prog3
+  riscaldamento:
+    name: Riscaldamento
+# Questo è uno switch dummy legato all'input_boolean "riscaldamento"
+# L'ho creato per avere un'entità di tipo switch che di fatto non avevo per poter testare
+# da te lo switch sarà quello che ti spegne e accende il termostato
+switch:
+  - platform: template
+    switches:
+      riscaldamento:
+        value_template: "{{ is_state('input_boolean.riscaldamento', 'on') }}"
+        turn_on:
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.riscaldamento
+        turn_off:
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.riscaldamento
+
+input_datetime:
+  prog1_on:
+    name: Prog1 ON
+    has_date: false
+    has_time: true
+  prog1_off:
+    name: Prog1 OFF
+    has_date: false
+    has_time: true    
+  prog2_on:
+    name: Prog2 ON
+    has_date: false
+    has_time: true
+  prog2_off:
+    name: Prog2 OFF
+    has_date: false
+    has_time: true
+  prog3_on:
+    name: Prog3 ON
+    has_date: false
+    has_time: true
+  prog3_off:
+    name: Prog3 OFF
+    has_date: false
+    has_time: true
+
+
+sensor:
+- platform: template
+  sensors:
+    riscaldamento_prog1:
+      value_template: >-
+          {% if states('sensor.time') >= state_attr('input_datetime.prog1_on', 'timestamp') | int | timestamp_custom('%H:%M', False) and states('sensor.time') < state_attr('input_datetime.prog1_off', 'timestamp') | int | timestamp_custom('%H:%M', False) %}
+            on
+          {% else %}
+            off
+          {% endif %}
+      entity_id: sensor.time
+    riscaldamento_prog2:
+      value_template: >-
+          {% if states('sensor.time') >= state_attr('input_datetime.prog2_on', 'timestamp') | int | timestamp_custom('%H:%M', False) and states('sensor.time') < state_attr('input_datetime.prog2_off', 'timestamp') | int | timestamp_custom('%H:%M', False) %}
+            on
+          {% else %}
+            off
+          {% endif %}
+      entity_id: sensor.time
+    riscaldamento_prog3:
+      value_template: >-
+          {% if states('sensor.time') >= state_attr('input_datetime.prog3_on', 'timestamp') | int | timestamp_custom('%H:%M', False) and states('sensor.time') < state_attr('input_datetime.prog3_off', 'timestamp') | int | timestamp_custom('%H:%M', False) %}
+            on
+          {% else %}
+            off
+          {% endif %}
+      entity_id: sensor.time
+
+input_select:
+  modalita:
+    name: Modalità
+    options:
+      - Automatico
+      - Manuale
+    initial: Automatico
+
+climate:
+- platform: generic_thermostat
+  name: Termostato
+  heater: switch.riscaldamento
+  target_sensor: sensor.soggiorno_temperature
+  min_temp: 5
+  max_temp: 30
+
+
+automation:
+- alias: Gestione Riscaldamento
+  trigger:
+  # L'automazione scatta nel momento in cui cambia stato uno dei
+  # seguenti sensori (e quindi si entra in una delle fasce orarie)...
+  - platform: state
+    entity_id: sensor.riscaldamento_prog1, sensor.riscaldamento_prog2, sensor.riscaldamento_prog3
+  condition:
+  # Se la modalità tramite menu a tendina è impostata su "Automatico"
+  - condition: state
+    entity_id: input_select.modalita
+    state: 'Automatico'
+  # e se l'input_boolean relativo al programma che ha fatto scattare il trigger è attivo
+  # (qui attenzione perché il nome dell'input_boolean è strettamente legato 
+  # a quello del sensore...infatti faccio una replace e concatenazione tra stringhe
+  # per ottenere il nome dell'input_boolean su cui effettuare il controllo)
+  - condition: template
+    value_template: "{{ states('input_boolean.' + (trigger.entity_id | replace('sensor.riscaldamento_',''))) == 'on' }}"
+  action:
+  # Scatta la action sul climate
+  # Se il sensore è passato da "off" a "on" accende il climate
+  # altrimenti spegne il climate
+  - service_template: >-
+      {% if trigger.to_state.state == 'on' %}
+        climate.turn_on
+      {% else %}
+        climate.turn_off
+      {% endif %}
+    data:
+      entity_id: climate.termostato

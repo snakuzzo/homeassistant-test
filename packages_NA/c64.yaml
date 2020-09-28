@@ -1,0 +1,45 @@
+timer:
+  intervallo:
+    duration: '00:00:10'
+
+input_boolean:
+  temperatura_above_50:
+
+automation:
+
+- alias: automation_1
+  trigger:
+  - platform: state
+    entity_id: timer.intervallo
+    to: 'finished'
+  - platform: numeric_state
+    entity_id: sensor.dht22_humidity
+    above: 50
+  - platform: numeric_state
+    entity_id: sensor.dht22_humidity
+    below: 50
+  action:
+  - service: timer.start
+    data:
+      entity_id: timer.intervallo
+  - choose:
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: template
+          value_template: "{{ trigger.entity_id == sensor.dht22_humidity }}"
+        - condition: and
+          conditions:
+          - condition: template
+            value_template: "{{ trigger.entity_id == timer.intervallo }}"
+          - condition: or
+            conditions:
+            - condition: template
+              value_template: "{{ states('sensor.dht22_humidity') > 50 and is_state('input_boolean','off') }}"
+            - condition: template
+              value_template: "{{ states('sensor.dht22_humidity') < 50 and is_state('input_boolean','on') }}"
+      sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.tuo_switch
+  
