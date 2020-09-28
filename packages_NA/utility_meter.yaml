@@ -58,7 +58,7 @@ automation:
   trigger:
   - platform: state
     entity_id: binary_sensor.fumotaverna
-    to: 'on'
+    to: 'on' 
   - platform: state
     entity_id: binary_sensor.fumocucina
     to: 'on'
