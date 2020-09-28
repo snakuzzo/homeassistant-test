@@ -1,0 +1,105 @@
+input_datetime:
+
+  scaldino_bagno_timing:
+    has_date: false
+    has_time: true
+
+input_boolean:
+
+  scaldino_bagno_weekend:
+
+input_number:
+
+  scaldino_temperatura_soglia:
+    initial: 5
+    min: 0
+    max: 59
+    step: 1
+
+  scaldino_bagno_duration:
+    initial: 5
+    min: 0
+    max: 59
+    step: 1
+
+automation:
+
+- alias:  Automazione Ale
+  trigger:
+  - event: start
+    platform: homeassistant
+  action:
+  - delay:
+      minutes: "{{ states('input_number.scaldino_bagno_duration') | int }}" 
+
+
+- alias: "Scaldino AUTO ON"
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == states('input_datetime.scaldino_bagno_timing')[0:5] }}"
+  condition:
+    - condition: or
+      conditions:
+      - condition: and
+        conditions:
+        - condition: time
+          weekday:
+            - sat
+            - sun
+        - condition: state
+          entity_id: input_boolean.scaldino_bagno_weekend
+          state: 'on'
+      - condition: and
+        conditions:
+        - condition: time
+          weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    - condition: template
+      value_template: "{{ states('sensor.bathroom_temperature') | int < states('input_number.scaldino_temperatura_soglia') | int }}"
+    - condition: state
+      entity_id: group.awesome_people
+      state: 'home'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.scaldino_bagno
+    - delay:
+        minutes: "{{ states('input_number.scaldino_bagno_duration') | int }}"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.scaldino_bagno
+
+- alias: "Bed light on presence"
+  mode: restart
+  trigger:
+    platform: state
+    entity_id: sensor.aeon_labs_zw100_multisensor_6_burglar
+    to: '8'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.awesome_people
+        state: 'home'
+      - condition: state
+        entity_id: light.letto_sopra
+        state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.aeon_labs_zw100_multisensor_6_luminance
+        below: 100
+  action:
+    - entity_id: light.letto
+      service: light.toggle
+      data:
+        white_value: 255
+        brightness: 255
+        rgb_color:
+          - 255
+          - 145
+          - 108
+    - delay:
+        minutes: 5
+    - entity_id: light.letto
+      service: light.turn_off

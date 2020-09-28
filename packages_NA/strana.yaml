@@ -1,0 +1,16 @@
+automation:
+
+- id: '1599563773829' 
+  alias: 'Alert Cucina'
+  description: 'Temperatura Alta'
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.0x00158d000464da1a_temperature 
+    above: 20
+    for: 
+      minutes: 1 
+  action:
+  - service: notify.pasquale_telegram
+    data: 
+      title: 'Home Assistant'
+      message: 'Temperatura alta!' 

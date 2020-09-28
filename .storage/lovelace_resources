@@ -1,0 +1,33 @@
+{
+    "data": {
+        "items": [
+            {
+                "id": "f0b13634d79f48f98e843656f18bc4c8",
+                "type": "module",
+                "url": "/local/card-tools.js?v=1"
+            },
+            {
+                "id": "112ff33ac59941eca964f5f8e25e5242",
+                "type": "module",
+                "url": "/local/light-popup-card.js?v=1"
+            },
+            {
+                "id": "f3748836d3014cba9f46e672df8679a1",
+                "type": "module",
+                "url": "/local/hass-bha-icons.js?v=2"
+            },
+            {
+                "id": "3dfb4e54c0734ef096cd71ae4487cca8",
+                "type": "module",
+                "url": "/local/bar-card.js?v=320"
+            },
+            {
+                "id": "2a42f785146747b7ac0f08fab86302af",
+                "type": "module",
+                "url": "/local/card-mod.js"
+            }
+        ]
+    },
+    "key": "lovelace_resources",
+    "version": 1
+}

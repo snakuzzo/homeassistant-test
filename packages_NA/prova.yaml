@@ -1,0 +1,32 @@
+climate:
+  - platform: generic_thermostat
+    name: climatizzatore
+    heater: switch.interruttore_clima
+    target_sensor: sensor.temperatura
+
+input_number:
+  temperatura:
+    name: "temperatura"
+    initial: 25
+    min: 16
+    max: 30
+    step: 1
+    mode: box
+
+sensor:
+- platform: template
+  sensors:
+    temperatura:
+      value_template: "{{ states('input_number.temperatura') }}"
+
+switch:
+- platform: template
+  switches:
+    interruttore_clima:
+      value_template: "{{ not is_state('climate.climatizzatore', 'off') }}"
+      turn_on:
+        - service: climate.turn_on
+          entity_id: climate.climatizzatore
+      turn_off:
+        - service: climate.turn_off
+          entity_id: climate.climatizzatore

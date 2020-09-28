@@ -1,0 +1,76 @@
+input_number:
+  temperatura_scialla:
+    initial: 25
+    min: 16
+    max: 30
+    step: 1
+    mode: box
+
+sensor:
+  - platform: template
+    sensors:
+      hygrothermograph_temperature:
+        value_template: "{{ states('input_number.temperatura_scialla') }}"
+      
+automation:
+
+- alias: 'Scialla Choose'
+  trigger:
+  # l'automazione scatta all'ora indicata
+  - platform: time
+    at: '06:30:00'
+  # ...oppure se la temperatura è superiore a 29°C per 5 min
+  - platform: numeric_state
+    entity_id: sensor.hygrothermograph_temperature
+    below: 29
+    for:
+      minutes: 5
+  # ...oppure se la temperatura è superiore a 29°C per 5 min    
+  - platform: numeric_state
+    entity_id: sensor.hygrothermograph_temperature
+    above: 29
+    for:
+      minutes: 5
+  action:
+  - choose:
+    - conditions:
+      # se il trigger è stato di tipo numeric_state ed il valore è > 29
+      - condition: template
+        value_template: "{{ trigger.platform == 'numeric_state' and trigger.to_state.state | float > 29 }}"
+      # ...e scialla è a casa
+      - condition: state
+        entity_id: 'device_tracker.life360_scialla'
+        state: 'home'
+      # ...e siamo nella fascia oraria 00:00 - 06:30
+      - condition: time
+        after: '00:00:00'
+        before: '06:30:00'
+      sequence:
+      # accende il ventilatore
+      - service: fan.turn_on
+        data:
+          entity_id: fan.ventilatore_letto
+    # QUESTA DI SEGUITO L'HO COMMENTATA PERCHE'...
+    # Questo perché se non viene verificata la condition per accenderlo, non essendoci condizioni da mettere in AND
+    # per dirgli di spegnerlo, l'unica condizione in cui si può trovare è legata per forza agli altri due trigger.
+    # Quindi puoi tranquillamente impostare lo spegnimento nel default.
+    #
+    #- conditions:
+    #  - condition: or
+    #    conditions: 
+    #    # se il trigger è di tipo numeric_state ed il valore è < 29
+    #    - condition: template
+    #      value_template: "{{ trigger.platform == 'numeric_state' and trigger.to_state.state | float < 29 }}"
+    #    # ...oppure se il trigger è di tipo time 
+    #    - condition: template
+    #      value_template: "{{ trigger.platform == 'time' }}"
+    #  sequence:
+    #    # spegne il ventilatore
+    #    - service: fan.turn_off
+    #      data:
+    #        entity_id: fan.ventilatore_letto
+    # in teoria non serve
+    default:
+      - service: fan.turn_off
+        data:
+          entity_id: fan.ventilatore_letto

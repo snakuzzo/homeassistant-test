@@ -1,0 +1,37 @@
+- id: '1552268240479'
+  alias: Shellies Announce
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time_pattern
+    minutes: /59
+  action:
+  - data:
+      payload: announce
+      topic: shellies/command
+    service: mqtt.publish
+    
+- id: '1552268241231'
+  alias: Sonoff Announce
+  trigger:
+  - event: start
+    platform: homeassistant
+  - platform: time_pattern
+    minutes: /58
+  action:
+  - data:
+      topic: cmnd/tasmotas/POWER
+    service: mqtt.publish
+  - data:
+      topic: cmnd/tasmotas/SHUTTERPOSITION
+    service: mqtt.publish
+
+
+- alias: 'System - Set Custom Theme at Startup'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: 'Green Dark Mode'

@@ -1,0 +1,63 @@
+automation:
+
+- alias: prova_magic_cube
+  trigger:
+  - platform: mqtt
+    topic: zigbee2mqtt/1xxxxxxxxxxx
+  condition:
+  - condition: template
+    value_template: "{{ trigger.payload_json.action != '' }}"
+  action:
+  - choose:
+    # CASO 1
+    - conditions:
+      # se from_side == 4
+      - condition: template
+        value_template: "{{ trigger.payload_json.from_side == 4 }}"
+      # e to_side == 5
+      - condition: template
+        value_template: "{{ trigger.payload_json.to_side == 5 }}"
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id: light.luce_1
+    # CASO 2
+    - conditions:
+      # se from_side == 2
+      - condition: template
+        value_template: "{{ trigger.payload_json.from_side == 2 }}"
+      # e to_side == 3
+      - condition: template
+        value_template: "{{ trigger.payload_json.to_side == 3 }}"
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id: light.luce_2
+
+
+- alias: prova_magic_cube_autodiscovery
+  trigger:
+  - platform: template
+    value_template: "{{ not is_state('sensor.magig_cube_state','') }}"
+  action:
+  - choose:
+    # CASO 1
+    - conditions:
+      # se flip90
+      - condition: state
+        entity_id: sensor.magic_cube_state
+        state: 'flip90'
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id: light.luce_1
+    # CASO 2
+    - conditions:
+      # se flip180
+      - condition: state
+        entity_id: sensor.magic_cube_state
+        state: 'flip180'
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id: light.luce_2

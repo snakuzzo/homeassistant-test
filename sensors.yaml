@@ -1,0 +1,25 @@
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'date_time_iso'
+    - 'time_date'
+    - 'time_utc'
+    - 'beat'
+
+- platform: command_line
+  name: Latest Tasmota Version
+  command: 'curl https://api.github.com/repos/arendst/Tasmota/releases/latest -s | jq .name -r'
+  scan_interval: 30
+  value_template: "{{ value.split()[1] | replace('v','') }}"
+
+# Sonoff Mini - Camera
+
+- platform: mqtt
+  name: My Tasmota Version
+  state_topic: "stat/sonoff-camera/STATUS2"
+  availability_topic: "tele/sonoff-camera/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  value_template: "{{ value_json['StatusFWR'].Version.split('(')[0] }}"

@@ -1,0 +1,73 @@
+input_boolean:
+  provolo:
+
+binary_sensor:
+
+- platform: mqtt
+  name: "FumoTaverna"
+  off_delay: 5
+  payload_on: "on"
+  payload_off: "off"
+  device_class: smoke
+  state_topic: "tele/BridgeRF/RESULT"
+  value_template: >
+    {% if value_json['RfReceived'].Data == '5501C0' %}
+      on
+    {% elif value_json['RfReceived'].Data == 'key_clean' %}
+      off
+    {% else %}
+      {{ states('binary_sensor.FumoTaverna') }}
+    {% endif %}
+
+- platform: mqtt
+  name: "FumoCucina"
+  off_delay: 5
+  payload_on: "on"
+  payload_off: "off"
+  device_class: smoke
+  state_topic: "tele/BridgeRF/RESULT"
+  value_template: >
+    {% if value_json['RfReceived'].Data == '0001C0' %}
+      on
+    {% elif value_json['RfReceived'].Data == 'key_clean' %}
+      off
+    {% else %}
+      {{ states('binary_sensor.FumoCucina') }}
+    {% endif %}
+
+automation:
+
+- alias: Reset allarmi binari MQTT
+  description: Fumo cucina, fumo taverna
+  trigger:
+  - platform: state
+    #entity_id: group.allarmibin
+    entity_id: input_boolean.provolo
+    for:
+      seconds: 20
+    to: 'on'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: tele/BridgeRF/RESULT
+      payload: '{"RfReceived":{"Data":"key_clean"}}'
+      retain: false
+      
+- alias: Allarme Fumo
+  description: Allarme per fumo in locali
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.fumotaverna
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.fumocucina
+    to: 'on'
+  action:
+  #- service: notify.matteo
+  #  data:
+  #    message: Allarme fumo test
+  - service: persistent_notification.create
+    data:
+      title: 'allarme'
+      message: 'test'
+  

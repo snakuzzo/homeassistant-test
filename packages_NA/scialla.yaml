@@ -1,0 +1,32 @@
+- alias: 'Accende ventilatore camera letto di notte se temp > 29°'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.hygrothermograph_temperature
+      above: 29
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'device_tracker.life360_scialla'
+        state: 'home'
+      - condition: time
+        after: '00:00:00'
+        before: '06:00:00'
+  action:
+    - service: fan.turn_on
+      entity_id: fan.ventilatore_letto
+
+- alias: 'Spegne ventilatore camera da letto alle 6:20 o sotto i 29°'
+  trigger:
+    - platform: time
+      at: '06:30:00'
+    - platform: numeric_state
+      entity_id: sensor.hygrothermograph_temperature
+      below: 29
+  condition:
+    - condition: state
+      entity_id: 'fan.ventilatore_letto'
+      state: 'on'
+  action:
+    - service: fan.turn_off
+      entity_id: fan.ventilatore_letto

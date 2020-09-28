@@ -1,0 +1,244 @@
+## INIZIO BLOCCO DIEGO ##
+
+input_boolean:
+  anta_dx_open:
+    name: anta_dx_open
+  anta_dx_closed:
+    name: anta_dx_closed
+  anta_sx_open:
+    name: anta_sx_open
+  anta_sx_closed:
+    name: anta_sx_closed
+  switch_serratura:
+    name: switch_serratura
+
+switch:
+- platform: template
+  switches: 
+    anta_dx_open:
+      value_template: '{{ states("input_boolean.anta_dx_open") }}'
+      turn_on:
+        - service: input_boolean.turn_on
+          data:
+            entity_id: input_boolean.anta_dx_open
+      turn_off:
+        - service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.anta_dx_open
+
+    anta_dx_closed:
+        value_template: '{{ states("input_boolean.anta_dx_closed") }}'
+        turn_on:
+          - service: input_boolean.turn_on
+            data:
+              entity_id: input_boolean.anta_dx_closed
+        turn_off:
+          - service: input_boolean.turn_off
+            data:
+              entity_id: input_boolean.anta_dx_closed
+
+    anta_sx_open:
+      value_template: '{{ states("input_boolean.anta_sx_open") }}'
+      turn_on:
+        - service: input_boolean.turn_on
+          data:
+            entity_id: input_boolean.anta_sx_open
+      turn_off:
+        - service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.anta_sx_open
+
+    anta_sx_closed:
+      value_template: '{{ states("input_boolean.anta_sx_closed") }}'
+      turn_on:
+        - service: input_boolean.turn_on
+          data:
+            entity_id: input_boolean.anta_sx_closed
+      turn_off:
+        - service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.anta_sx_closed
+
+    switch_serratura:
+      value_template: '{{ states("input_boolean.switch_serratura") }}'
+      turn_on:
+        - service: input_boolean.turn_on
+          data:
+            entity_id: input_boolean.switch_serratura
+      turn_off:
+        - service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.switch_serratura
+
+## FINE BLOCCO DIEGO ##
+
+cover:
+  - platform: cover_rf_time_based
+    devices:
+        room:
+          name: tapparella
+          travelling_time_up: 33
+          travelling_time_down: 33
+          close_script_entity_id: script.chiusura_ante_1
+          stop_script_entity_id: script.stop_ante_1
+          open_script_entity_id: script.apertura_ante_1
+          send_stop_at_ends: True
+          aliases: 
+            - room
+
+sensor:
+  - platform: template
+    sensors:
+      percentuale_anta_1:
+        friendly_name: "percentuale anta 1"
+        unit_of_measurement: '%'
+        value_template: "{{ state_attr('cover.tapparella', 'current_position') }}"
+
+script:
+  apertura_ante_1:
+    sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.serratura
+      - delay: '00:00:01'
+      - service: switch.turn_on
+        data:
+          entity_id: switch.anta_dx_open
+      - delay: '00:00:01'
+      - service: switch.turn_on
+        data:
+          entity_id: switch.anta_sx_open
+      - service: switch.turn_off
+        data:
+          entity_id: switch.serratura
+
+  chiusura_ante_1:
+    sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.anta_sx_closed
+      - delay: '00:00:01'
+      - service: switch.turn_on
+        data:
+          entity_id: switch.anta_dx_closed
+
+  stop_ante_1:
+    sequence:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.anta_dx_open 
+      - service: switch.turn_off
+        data:
+          entity_id: switch.anta_sx_open 
+      - service: switch.turn_off
+        data:
+          entity_id: switch.anta_dx_closed
+      - service: switch.turn_off
+        data:
+          entity_id: switch.anta_sx_closed 
+      - service: switch.turn_off
+        data:
+          entity_id: switch.serratura
+
+automation:
+
+- alias: controllo su apertura
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: cover
+      service: open_cover
+      entity_id: cover.tapparella
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: cover
+      service: close_cover
+      entity_id: cover.tapparella    
+  - platform: event
+    event_type: call_service
+    event_data: 
+      domain: script
+      service: turn_on
+      entity_id: script.apertura_ante_1
+  - platform: event
+    event_type: call_service
+    event_data: 
+      domain: script
+      service: turn_on
+      entity_id: script.chiusura_ante_1
+  condition:
+    condition: template
+    value_template: "{{ ( states('sensor.percentuale_anta_1') | int == 0 and trigger.event.data.service_data.entity_id[0] == 'script.chiusura_ante_1' ) or ( states('sensor.percentuale_anta_1') | int == 100 and trigger.event.data.service_data.entity_id[0] == 'script.apertura_ante_1' ) }}"
+  action:
+  - service: script.turn_on
+    data: 
+      entity_id: script.stop_ante_1
+  - service: homeassistant.turn_off
+    data_template:
+      entity_id: "{{ trigger.event.data.service_data.entity_id[0] }}"
+
+- alias: pulsante apertura
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.pulsante_1
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: cover.tapparella
+        state: 'closing'
+      - condition: state
+        entity_id: cover.tapparella
+        state: 'closed'  
+  action:
+    - service: cover.stop_cover
+      entity_id: cover.tapparella
+    - delay: '00:00:01'
+    - service: cover.open_cover
+      entity_id: cover.tapparella
+      
+- alias: pulsante chiusura
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.pulsante_1
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: cover.tapparella
+        state: 'opening'
+      - condition: state
+        entity_id: cover.tapparella
+        state: 'open'
+  action:
+    - service: cover.stop_cover
+      entity_id: cover.tapparella
+    - delay: '00:00:01'
+    - service: cover.close_cover
+      entity_id: cover.tapparella
+
+- alias: pulsante stop
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.pulsante_2
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: cover.tapparella
+        state: 'opening'
+      - condition: state
+        entity_id: cover.tapparella
+        state: 'closing'
+  action:
+    - service: cover.stop_cover
+      entity_id: cover.tapparella      

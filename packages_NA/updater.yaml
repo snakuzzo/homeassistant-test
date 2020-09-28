@@ -1,0 +1,46 @@
+automation:
+- alias: New HA Version available
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.ha_new_version
+    to: 'on'
+  - event: start
+    platform: homeassistant
+  condition:
+  - condition: state
+    entity_id: binary_sensor.ha_new_version
+    state: 'on'
+  action:
+  - service: persistent_notification.create
+    data_template:
+      title: "New Version available!"
+      message:  "Version {{ states('sensor.ha_latest') }} is available to download"
+  #- service: notify.telegram_diego
+  #  data_template:
+  #    title: "New Version available!"
+  #    message:  "Version {{ states('sensor.ha_latest') }} is available to download"
+
+sensor:
+
+- platform: version
+  name: ha_latest
+  source: pypi
+  image: raspberrypi
+
+- platform: version
+  name: ha_current
+  source: local
+  image: raspberrypi
+
+binary_sensor:
+
+- platform: template
+  sensors:
+    ha_new_version:
+      friendly_name: "HA Version"
+      value_template: "{{ states('sensor.ha_current') < states('sensor.ha_latest') }}"
+      device_class: moving
+      attribute_templates:
+        current_version: "{{ states('sensor.ha_current') }}"
+        latest_version: "{{ states('sensor.ha_latest') }}"

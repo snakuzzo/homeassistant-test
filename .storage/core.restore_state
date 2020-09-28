@@ -1,0 +1,654 @@
+{
+    "version": 1,
+    "key": "core.restore_state",
+    "data": [
+        {
+            "state": {
+                "entity_id": "person.snakuzzo",
+                "state": "unknown",
+                "attributes": {
+                    "editable": true,
+                    "id": "snakuzzo",
+                    "source": "person.snakuzzo",
+                    "user_id": "7a446dd8685b4ba2a5d4f2c15a558437",
+                    "friendly_name": "snakuzzo"
+                },
+                "last_changed": "2020-09-28T14:11:19.659395+00:00",
+                "last_updated": "2020-09-28T14:11:19.659395+00:00",
+                "context": {
+                    "id": "7b137a49019411eb87a989bebb88875a",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.shellies_announce",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "id": "1552268240479",
+                    "friendly_name": "Shellies Announce"
+                },
+                "last_changed": "2020-09-28T14:11:20.097115+00:00",
+                "last_updated": "2020-09-28T14:11:20.097115+00:00",
+                "context": {
+                    "id": "7b5644b6019411eb9c216fd0721f393b",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.sonoff_announce",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": "2020-09-25T12:11:52.071747+00:00",
+                    "mode": "single",
+                    "current": 0,
+                    "id": "1552268241231",
+                    "friendly_name": "Sonoff Announce"
+                },
+                "last_changed": "2020-09-28T14:11:20.097252+00:00",
+                "last_updated": "2020-09-28T14:11:20.097252+00:00",
+                "context": {
+                    "id": "7b564a55019411eb8bba75092fd27150",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.system_set_custom_theme_at_startup",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "System - Set Custom Theme at Startup"
+                },
+                "last_changed": "2020-09-28T14:11:20.097362+00:00",
+                "last_updated": "2020-09-28T14:11:20.097362+00:00",
+                "context": {
+                    "id": "7b564eb0019411eb8bda3b73dbfdfc8e",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "light.luce_camera",
+                "state": "off",
+                "attributes": {
+                    "friendly_name": "Luce Camera",
+                    "supported_features": 0
+                },
+                "last_changed": "2020-09-28T14:11:20.238526+00:00",
+                "last_updated": "2020-09-28T14:11:20.238526+00:00",
+                "context": {
+                    "id": "7b6bd8bf019411eb9d1845e792288967",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-28T14:11:20.794377+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_number.scaldino_temperatura_soglia",
+                "state": "5.0",
+                "attributes": {
+                    "initial": 5.0,
+                    "editable": false,
+                    "min": 0.0,
+                    "max": 59.0,
+                    "step": 1.0,
+                    "mode": "slider"
+                },
+                "last_changed": "2020-09-26T18:02:13.543097+00:00",
+                "last_updated": "2020-09-26T18:02:13.543097+00:00",
+                "context": {
+                    "id": "67cedc73002211eb9119bdcbc0173d24",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_number.scaldino_bagno_duration",
+                "state": "5.0",
+                "attributes": {
+                    "initial": 5.0,
+                    "editable": false,
+                    "min": 0.0,
+                    "max": 59.0,
+                    "step": 1.0,
+                    "mode": "slider"
+                },
+                "last_changed": "2020-09-26T18:02:13.543369+00:00",
+                "last_updated": "2020-09-26T18:02:13.543369+00:00",
+                "context": {
+                    "id": "67cee8a0002211eb96dce59fc5f264a7",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_number.temperatura",
+                "state": "25.0",
+                "attributes": {
+                    "initial": 25.0,
+                    "editable": false,
+                    "min": 16.0,
+                    "max": 30.0,
+                    "step": 1.0,
+                    "mode": "box",
+                    "friendly_name": "temperatura"
+                },
+                "last_changed": "2020-09-26T18:02:13.543542+00:00",
+                "last_updated": "2020-09-26T18:02:13.543542+00:00",
+                "context": {
+                    "id": "67ceef50002211eb982f5728451194aa",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_number.temperatura_scialla",
+                "state": "25.0",
+                "attributes": {
+                    "initial": 25.0,
+                    "editable": false,
+                    "min": 16.0,
+                    "max": 30.0,
+                    "step": 1.0,
+                    "mode": "box"
+                },
+                "last_changed": "2020-09-26T18:02:13.543680+00:00",
+                "last_updated": "2020-09-26T18:02:13.543680+00:00",
+                "context": {
+                    "id": "67cef4f7002211eb834253c22faa0bd6",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.scaldino_bagno_weekend",
+                "state": "off",
+                "attributes": {
+                    "editable": false
+                },
+                "last_changed": "2020-09-26T18:02:13.660330+00:00",
+                "last_updated": "2020-09-26T18:02:13.660330+00:00",
+                "context": {
+                    "id": "67e0c14f002211eb9b7661427a84a345",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.provolo",
+                "state": "off",
+                "attributes": {
+                    "editable": false
+                },
+                "last_changed": "2020-09-26T18:02:13.660586+00:00",
+                "last_updated": "2020-09-26T18:02:13.660586+00:00",
+                "context": {
+                    "id": "67e0caef002211eba4316b3ad862874b",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_datetime.scaldino_bagno_timing",
+                "state": "00:00:00",
+                "attributes": {
+                    "editable": false,
+                    "has_date": false,
+                    "has_time": true,
+                    "hour": 0,
+                    "minute": 0,
+                    "second": 0,
+                    "timestamp": 0
+                },
+                "last_changed": "2020-09-26T18:02:13.661382+00:00",
+                "last_updated": "2020-09-26T18:02:13.661382+00:00",
+                "context": {
+                    "id": "67e0e6ad002211eb8e0755306aae4314",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "switch.interruttore_clima",
+                "state": "off",
+                "attributes": {
+                    "friendly_name": "interruttore_clima"
+                },
+                "last_changed": "2020-09-26T18:02:13.739994+00:00",
+                "last_updated": "2020-09-26T18:02:13.739994+00:00",
+                "context": {
+                    "id": "67ece856002211ebb740a140b6c42362",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.allarme_movimento",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "id": "2132191820312",
+                    "friendly_name": "Allarme Movimento"
+                },
+                "last_changed": "2020-09-26T18:02:13.788035+00:00",
+                "last_updated": "2020-09-26T18:02:13.788035+00:00",
+                "context": {
+                    "id": "67f43df4002211eba1e9b92e07d9a34c",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.allarme_apertura_porte",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "id": "1598434016439",
+                    "friendly_name": "Allarme Apertura Porte"
+                },
+                "last_changed": "2020-09-26T18:02:13.788276+00:00",
+                "last_updated": "2020-09-26T18:02:13.788276+00:00",
+                "context": {
+                    "id": "67f44768002211ebb1ea69cec4ec0cab",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.automazione_ale",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": "2020-09-25T12:11:52.072101+00:00",
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "Automazione Ale"
+                },
+                "last_changed": "2020-09-26T18:02:13.788499+00:00",
+                "last_updated": "2020-09-26T18:02:13.788499+00:00",
+                "context": {
+                    "id": "67f4502c002211ebb3b203a226f18ddb",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.scaldino_auto_on",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "Scaldino AUTO ON"
+                },
+                "last_changed": "2020-09-26T18:02:13.788735+00:00",
+                "last_updated": "2020-09-26T18:02:13.788735+00:00",
+                "context": {
+                    "id": "67f4593c002211eba06f4b2d3786ef1f",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.bed_light_on_presence",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "restart",
+                    "current": 0,
+                    "friendly_name": "Bed light on presence"
+                },
+                "last_changed": "2020-09-26T18:02:13.789015+00:00",
+                "last_updated": "2020-09-26T18:02:13.789015+00:00",
+                "context": {
+                    "id": "67f463a6002211ebbaed8541d27b7f15",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.prova_magic_cube",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "prova_magic_cube"
+                },
+                "last_changed": "2020-09-26T18:02:13.789328+00:00",
+                "last_updated": "2020-09-26T18:02:13.789328+00:00",
+                "context": {
+                    "id": "67f4707c002211ebba31b550174a10d7",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.prova_magic_cube_autodiscovery",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "prova_magic_cube_autodiscovery"
+                },
+                "last_changed": "2020-09-26T18:02:13.789580+00:00",
+                "last_updated": "2020-09-26T18:02:13.789580+00:00",
+                "context": {
+                    "id": "67f47aad002211eb9b4a05ea175b2b96",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.scialla_choose",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "Scialla Choose"
+                },
+                "last_changed": "2020-09-26T18:02:13.789732+00:00",
+                "last_updated": "2020-09-26T18:02:13.789732+00:00",
+                "context": {
+                    "id": "67f48074002211eb8f58a31bec70a74c",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.alert_cucina",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "id": "1599563773829",
+                    "friendly_name": "Alert Cucina"
+                },
+                "last_changed": "2020-09-26T18:02:13.790133+00:00",
+                "last_updated": "2020-09-26T18:02:13.790133+00:00",
+                "context": {
+                    "id": "67f48f39002211eb89b9c12b4cccb2c3",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.new_ha_version_available",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": "2020-09-25T12:11:52.072303+00:00",
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "New HA Version available"
+                },
+                "last_changed": "2020-09-26T18:02:13.790566+00:00",
+                "last_updated": "2020-09-26T18:02:13.790566+00:00",
+                "context": {
+                    "id": "67f4a09d002211eb9d50254007ee0705",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.reset_allarmi_binari_mqtt",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "Reset allarmi binari MQTT"
+                },
+                "last_changed": "2020-09-26T18:02:13.790860+00:00",
+                "last_updated": "2020-09-26T18:02:13.790860+00:00",
+                "context": {
+                    "id": "67f4abe5002211eb8b75bb69346c881f",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.allarme_fumo",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": "2020-09-10T08:37:08.801320+00:00",
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "Allarme Fumo"
+                },
+                "last_changed": "2020-09-26T18:02:13.791150+00:00",
+                "last_updated": "2020-09-26T18:02:13.791150+00:00",
+                "context": {
+                    "id": "67f4b78b002211eb8f0ecbe91b7e30ff",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "climate.climatizzatore",
+                "state": "off",
+                "attributes": {
+                    "hvac_modes": [
+                        "heat",
+                        "off"
+                    ],
+                    "min_temp": 7,
+                    "max_temp": 35,
+                    "current_temperature": null,
+                    "temperature": 7.0,
+                    "hvac_action": "off",
+                    "friendly_name": "climatizzatore",
+                    "supported_features": 1
+                },
+                "last_changed": "2020-09-26T18:02:13.839884+00:00",
+                "last_updated": "2020-09-26T18:02:13.839884+00:00",
+                "context": {
+                    "id": "67fc26b8002211ebb16093eb14d00348",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-26T18:02:14.510250+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_datetime.giorno_1",
+                "state": "00:00:00",
+                "attributes": {
+                    "editable": false,
+                    "has_date": false,
+                    "has_time": true,
+                    "hour": 0,
+                    "minute": 0,
+                    "second": 0,
+                    "timestamp": 0,
+                    "friendly_name": "Giorno 1"
+                },
+                "last_changed": "2020-09-25T13:01:33.342511+00:00",
+                "last_updated": "2020-09-25T13:01:33.342511+00:00",
+                "context": {
+                    "id": "3c98f735ff2f11ea8cf8b5e19bc7bd87",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-25T13:01:35.571974+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_datetime.giorno_2",
+                "state": "00:00:00",
+                "attributes": {
+                    "editable": false,
+                    "has_date": false,
+                    "has_time": true,
+                    "hour": 0,
+                    "minute": 0,
+                    "second": 0,
+                    "timestamp": 0,
+                    "friendly_name": "Giorno 2"
+                },
+                "last_changed": "2020-09-25T13:01:33.342607+00:00",
+                "last_updated": "2020-09-25T13:01:33.342607+00:00",
+                "context": {
+                    "id": "3c98fb01ff2f11ea929ddf91ebdab365",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-25T13:01:35.571974+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_datetime.giorno_3",
+                "state": "00:00:00",
+                "attributes": {
+                    "editable": false,
+                    "has_date": false,
+                    "has_time": true,
+                    "hour": 0,
+                    "minute": 0,
+                    "second": 0,
+                    "timestamp": 0,
+                    "friendly_name": "Giorno 3"
+                },
+                "last_changed": "2020-09-25T13:01:33.342695+00:00",
+                "last_updated": "2020-09-25T13:01:33.342695+00:00",
+                "context": {
+                    "id": "3c98fe7eff2f11ea9e7f27e7a6cfc27c",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-25T13:01:35.571974+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.apri_cancello_auto",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "Apri cancello auto"
+                },
+                "last_changed": "2020-09-24T07:56:16.564983+00:00",
+                "last_updated": "2020-09-24T07:56:16.564983+00:00",
+                "context": {
+                    "id": "6c88c4fffe3b11eaaba845e7183fb9a2",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-24T08:41:17.220798+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_number.duration",
+                "state": "5.0",
+                "attributes": {
+                    "initial": 5.0,
+                    "editable": false,
+                    "min": 0.0,
+                    "max": 59.0,
+                    "step": 1.0,
+                    "mode": "slider"
+                },
+                "last_changed": "2020-09-22T12:33:14.055174+00:00",
+                "last_updated": "2020-09-22T12:33:14.055174+00:00",
+                "context": {
+                    "id": "c8810a5efccf11ea856df915c176a0a0",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-22T12:33:14.853890+00:00"
+        }
+    ]
+}
