@@ -11,8 +11,8 @@ input_number:
 input_boolean:
   dummy_switch:
     name: "Switch"
-  dummy_light:
-    name: "Light"
+#  dummy_light:
+#    name: "Light"
   dummy_cover_switch_open:
     name: "Open Cover"
   dummy_cover_switch_close:
@@ -67,11 +67,12 @@ light:
     dummy_light:
       friendly_name: "Light"
       turn_on:
-        service: input_boolean.turn_on
-        entity_id: input_boolean.dummy_light
+      #  service: input_boolean.turn_on
+      #  entity_id: input_boolean.dummy_light
       turn_off:
-        service: input_boolean.turn_off
-        entity_id: input_boolean.dummy_light
+      #  service: input_boolean.turn_off
+      #  entity_id: input_boolean.dummy_light
+      set_level:
 
 # COVER
 cover:
