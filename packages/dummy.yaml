@@ -13,7 +13,11 @@ input_boolean:
     name: "Switch"
   dummy_light:
     name: "Light"
-
+  dummy_cover_switch_open:
+    name: "Open Cover"
+  dummy_cover_switch_close:
+    name: "Close Cover"
+  
 # SENSORE TEMPERATURA
 sensor:
   - platform: template
@@ -36,6 +40,24 @@ switch:
       turn_off:
         service: input_boolean.turn_off
         entity_id: input_boolean.dummy_switch
+    dummy_cover_switch_open:
+      friendly_name: "Open Cover"
+      value_template: "{{ is_state('input_boolean.dummy_cover_switch_open','om') }}"
+      turn_on:
+        service: input_boolean.turn_on
+        entity_id: input_boolean.dummy_cover_switch_open
+      turn_off:
+        service: input_boolean.turn_off
+        entity_id: input_boolean.dummy_cover_switch_open
+    dummy_cover_switch_close:
+      friendly_name: "Close Cover"
+      value_template: "{{ is_state('input_boolean.dummy_cover_switch_close','om') }}"
+      turn_on:
+        service: input_boolean.turn_on
+        entity_id: input_boolean.dummy_cover_switch_close
+      turn_off:
+        service: input_boolean.turn_off
+        entity_id: input_boolean.dummy_cover_switch_close
 
 # LIGHT
 light:
@@ -50,3 +72,15 @@ light:
       turn_off:
         service: input_boolean.turn_off
         entity_id: input_boolean.dummy_light
+
+# COVER
+cover:
+
+- platform: cover_time_based
+  devices:
+    dummy_cover:
+      name: "dummy_cover"
+      travelling_time_down: 20
+      travelling_time_up: 20
+      open_switch_entity_id: switch.dummy_cover_switch_open
+      close_switch_entity_id: switch.dummy_cover_switch_close
