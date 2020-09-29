@@ -1090,6 +1090,54 @@
                 "unit_of_measurement": null,
                 "original_name": "Temperature",
                 "original_icon": null
+            },
+            {
+                "entity_id": "input_boolean.dummy_cover_switch_open",
+                "config_entry_id": null,
+                "device_id": null,
+                "unique_id": "dummy_cover_switch_open",
+                "platform": "input_boolean",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Open Cover",
+                "original_icon": null
+            },
+            {
+                "entity_id": "input_boolean.dummy_cover_switch_close",
+                "config_entry_id": null,
+                "device_id": null,
+                "unique_id": "dummy_cover_switch_close",
+                "platform": "input_boolean",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Close Cover",
+                "original_icon": null
+            },
+            {
+                "entity_id": "input_number.slider1",
+                "config_entry_id": null,
+                "device_id": null,
+                "unique_id": "slider1",
+                "platform": "input_number",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Slider",
+                "original_icon": null
             }
         ]
     }

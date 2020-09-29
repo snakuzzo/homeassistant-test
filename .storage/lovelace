@@ -9,41 +9,33 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "horizontal-stack",
-                            "cards": [
+                            "type": "entities",
+                            "entities": [
                                 {
-                                    "type": "entities",
-                                    "entities": [
-                                        {
-                                            "entity": "input_boolean.dummy_light"
-                                        },
-                                        {
-                                            "entity": "input_boolean.dummy_switch"
-                                        },
-                                        {
-                                            "entity": "input_number.dummy_temperature"
-                                        }
-                                    ],
-                                    "title": "Dummy Control",
-                                    "show_header_toggle": false
+                                    "entity": "light.dummy_light"
                                 },
                                 {
-                                    "type": "entities",
-                                    "entities": [
-                                        {
-                                            "entity": "light.dummy_light"
-                                        },
-                                        {
-                                            "entity": "switch.dummy_switch"
-                                        },
-                                        {
-                                            "entity": "sensor.dummy_temperature"
-                                        }
-                                    ],
-                                    "title": "Dummy Entities",
-                                    "show_header_toggle": false
+                                    "entity": "switch.dummy_switch"
+                                },
+                                {
+                                    "entity": "cover.dummy_cover"
+                                },
+                                {
+                                    "entity": "cover.dummy_cover",
+                                    "full_row": true,
+                                    "type": "custom:slider-entity-row",
+                                    "step": 1
+                                },
+                                {
+                                    "entity": "sensor.dummy_temperature"
+                                },
+                                {
+                                    "entity": "input_number.dummy_temperature"
                                 }
-                            ]
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Dummy",
+                            "state_color": true
                         }
                     ],
                     "path": "default_view",
