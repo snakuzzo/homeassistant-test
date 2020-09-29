@@ -13,15 +13,194 @@
                     "user_id": "7a446dd8685b4ba2a5d4f2c15a558437",
                     "friendly_name": "snakuzzo"
                 },
-                "last_changed": "2020-09-28T18:00:32.851580+00:00",
-                "last_updated": "2020-09-28T18:00:32.851580+00:00",
+                "last_changed": "2020-09-29T07:01:28.409832+00:00",
+                "last_updated": "2020-09-29T07:01:28.409832+00:00",
                 "context": {
-                    "id": "809e0fde01b411eba9aeab595e38244c",
+                    "id": "98b4dc23022111eb98347598370db481",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-28T18:00:34.615958+00:00"
+            "last_seen": "2020-09-29T07:01:29.927920+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_number.dummy_temperature",
+                "state": "20.0",
+                "attributes": {
+                    "initial": 20.0,
+                    "editable": false,
+                    "min": 18.0,
+                    "max": 30.0,
+                    "step": 0.1,
+                    "mode": "slider",
+                    "friendly_name": "Temperature"
+                },
+                "last_changed": "2020-09-29T07:01:29.047857+00:00",
+                "last_updated": "2020-09-29T07:01:29.047857+00:00",
+                "context": {
+                    "id": "99163738022111eb92aadf0d83c97177",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T07:01:29.927920+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.dummy_switch",
+                "state": "off",
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Switch"
+                },
+                "last_changed": "2020-09-29T07:01:29.051065+00:00",
+                "last_updated": "2020-09-29T07:01:29.051065+00:00",
+                "context": {
+                    "id": "9916b467022111ebbb2e33d2d9ed01ac",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T07:01:29.927920+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.dummy_light",
+                "state": "off",
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Light"
+                },
+                "last_changed": "2020-09-29T07:01:29.051164+00:00",
+                "last_updated": "2020-09-29T07:01:29.051164+00:00",
+                "context": {
+                    "id": "9916b88a022111ebbc25a1ae2b5468d6",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T07:01:29.927920+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "switch.dummy_switch",
+                "state": "off",
+                "attributes": {
+                    "friendly_name": "Switch"
+                },
+                "last_changed": "2020-09-29T07:01:29.096310+00:00",
+                "last_updated": "2020-09-29T07:01:29.096310+00:00",
+                "context": {
+                    "id": "991d9bba022111ebbb0903943087f0fd",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T07:01:29.927920+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.shellies_announce",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": "2020-09-28T17:59:18.896724+00:00",
+                    "mode": "single",
+                    "current": 0,
+                    "id": "1552268240479",
+                    "friendly_name": "Shellies Announce"
+                },
+                "last_changed": "2020-09-29T07:01:29.097154+00:00",
+                "last_updated": "2020-09-29T07:01:29.097154+00:00",
+                "context": {
+                    "id": "991dbd05022111eb8ac07b4fd098de02",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T07:01:29.927920+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.sonoff_announce",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": "2020-09-28T17:59:18.896967+00:00",
+                    "mode": "single",
+                    "current": 0,
+                    "id": "1552268241231",
+                    "friendly_name": "Sonoff Announce"
+                },
+                "last_changed": "2020-09-29T07:01:29.097266+00:00",
+                "last_updated": "2020-09-29T07:01:29.097266+00:00",
+                "context": {
+                    "id": "991dc16e022111eb9e329d7488576af1",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T07:01:29.927920+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.system_set_custom_theme_at_startup",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": "2020-09-28T17:59:18.897166+00:00",
+                    "mode": "single",
+                    "current": 0,
+                    "friendly_name": "System - Set Custom Theme at Startup"
+                },
+                "last_changed": "2020-09-29T07:01:29.097370+00:00",
+                "last_updated": "2020-09-29T07:01:29.097370+00:00",
+                "context": {
+                    "id": "991dc584022111eb9662f95b9948ca38",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T07:01:29.927920+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "light.luce_camera",
+                "state": "off",
+                "attributes": {
+                    "friendly_name": "Luce Camera",
+                    "supported_features": 0
+                },
+                "last_changed": "2020-09-29T07:01:29.172411+00:00",
+                "last_updated": "2020-09-29T07:01:29.172411+00:00",
+                "context": {
+                    "id": "9929371e022111ebb5de67e13ccece50",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T07:01:29.927920+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_number.dummy_sensor_temperatura",
+                "state": "20.0",
+                "attributes": {
+                    "initial": 20.0,
+                    "editable": false,
+                    "min": 18.0,
+                    "max": 30.0,
+                    "step": 1.0,
+                    "mode": "slider",
+                    "friendly_name": "Temperatura"
+                },
+                "last_changed": "2020-09-29T06:52:43.336094+00:00",
+                "last_updated": "2020-09-29T06:52:43.336094+00:00",
+                "context": {
+                    "id": "5fbcf77e022011ebbdf4b9cf9d45d087",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T06:52:43.884907+00:00"
         },
         {
             "state": {
@@ -83,68 +262,6 @@
         },
         {
             "state": {
-                "entity_id": "automation.shellies_announce",
-                "state": "on",
-                "attributes": {
-                    "last_triggered": "2020-09-28T17:59:18.896724+00:00",
-                    "mode": "single",
-                    "current": 0,
-                    "id": "1552268240479",
-                    "friendly_name": "Shellies Announce"
-                },
-                "last_changed": "2020-09-28T18:00:33.734508+00:00",
-                "last_updated": "2020-09-28T18:00:33.734508+00:00",
-                "context": {
-                    "id": "8124c8f801b411eb9848a9ab21f35ff7",
-                    "parent_id": null,
-                    "user_id": null
-                }
-            },
-            "last_seen": "2020-09-28T18:00:34.615958+00:00"
-        },
-        {
-            "state": {
-                "entity_id": "automation.sonoff_announce",
-                "state": "on",
-                "attributes": {
-                    "last_triggered": "2020-09-28T17:59:18.896967+00:00",
-                    "mode": "single",
-                    "current": 0,
-                    "id": "1552268241231",
-                    "friendly_name": "Sonoff Announce"
-                },
-                "last_changed": "2020-09-28T18:00:33.734705+00:00",
-                "last_updated": "2020-09-28T18:00:33.734705+00:00",
-                "context": {
-                    "id": "8124d0f001b411eb83bc996695d6fb65",
-                    "parent_id": null,
-                    "user_id": null
-                }
-            },
-            "last_seen": "2020-09-28T18:00:34.615958+00:00"
-        },
-        {
-            "state": {
-                "entity_id": "automation.system_set_custom_theme_at_startup",
-                "state": "on",
-                "attributes": {
-                    "last_triggered": "2020-09-28T17:59:18.897166+00:00",
-                    "mode": "single",
-                    "current": 0,
-                    "friendly_name": "System - Set Custom Theme at Startup"
-                },
-                "last_changed": "2020-09-28T18:00:33.734975+00:00",
-                "last_updated": "2020-09-28T18:00:33.734975+00:00",
-                "context": {
-                    "id": "8124db5e01b411eb980363e09f28dc33",
-                    "parent_id": null,
-                    "user_id": null
-                }
-            },
-            "last_seen": "2020-09-28T18:00:34.615958+00:00"
-        },
-        {
-            "state": {
                 "entity_id": "climate.termostato",
                 "state": "off",
                 "attributes": {
@@ -169,24 +286,6 @@
                 "last_updated": "2020-09-28T18:00:33.736049+00:00",
                 "context": {
                     "id": "8125055201b411ebab34217d180cf856",
-                    "parent_id": null,
-                    "user_id": null
-                }
-            },
-            "last_seen": "2020-09-28T18:00:34.615958+00:00"
-        },
-        {
-            "state": {
-                "entity_id": "light.luce_camera",
-                "state": "off",
-                "attributes": {
-                    "friendly_name": "Luce Camera",
-                    "supported_features": 0
-                },
-                "last_changed": "2020-09-28T18:00:33.763005+00:00",
-                "last_updated": "2020-09-28T18:00:33.763005+00:00",
-                "context": {
-                    "id": "8129229001b411eb9b57c957327cae41",
                     "parent_id": null,
                     "user_id": null
                 }

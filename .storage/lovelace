@@ -9,27 +9,41 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "thermostat",
-                            "entity": "climate.termostato"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
+                            "type": "horizontal-stack",
+                            "cards": [
                                 {
-                                    "entity": "sensor.termostato_temperatura"
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "input_boolean.dummy_light"
+                                        },
+                                        {
+                                            "entity": "input_boolean.dummy_switch"
+                                        },
+                                        {
+                                            "entity": "input_number.dummy_temperature"
+                                        }
+                                    ],
+                                    "title": "Dummy Control",
+                                    "show_header_toggle": false
                                 },
                                 {
-                                    "entity": "input_boolean.termostato"
-                                },
-                                {
-                                    "entity": "switch.termostato_interruttore"
-                                },
-                                {
-                                    "entity": "input_number.temperatura"
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "light.dummy_light"
+                                        },
+                                        {
+                                            "entity": "switch.dummy_switch"
+                                        },
+                                        {
+                                            "entity": "sensor.dummy_temperature"
+                                        }
+                                    ],
+                                    "title": "Dummy Entities",
+                                    "show_header_toggle": false
                                 }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Entit\u00e0"
+                            ]
                         }
                     ],
                     "path": "default_view",

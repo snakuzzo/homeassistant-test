@@ -103,7 +103,7 @@
                 "access_token_expiration": 1800.0,
                 "token": "137dd27bfc61243402c33c525a83ee505ff5a1c1a310b842ba6efc60e4006f02e5331b69e14e75daf6b1d7ec1b251d5c6d81f6a890897c3383d1ec08507a9f0a",
                 "jwt_key": "22504b99acef4a3fb9ac584cba82d31eb3e544ebdf714a82e7067577e81dc84b7ddbc9090e02aa1d4b56aa9ad6f8679ea0c5d2071a3788f643064474728cc11e",
-                "last_used_at": "2020-09-28T13:43:44.181958+00:00",
+                "last_used_at": "2020-09-29T06:58:42.380713+00:00",
                 "last_used_ip": "::1"
             },
             {
