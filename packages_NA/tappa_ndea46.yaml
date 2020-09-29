@@ -1,0 +1,57 @@
+automation:
+
+- alias: Aggiorna slider cover 1
+  trigger:
+    platform: event
+    event_type: call_service
+    event_data:
+      service: set_cover_position
+  condition:
+  - condition: template
+    value_template: "{{ trigger.event.data.service_data.entity_id == 'cover.cover_1' }}"
+  action:
+  - service: persistent_notification.create
+    data:
+      message: "{{ trigger.event.data.service_data.position }}"
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.dummy_cover
+      position: "{{ trigger.event.data.service_data.position | int }}"
+
+cover:
+
+  - platform: template
+    covers:
+      cover_1:
+        device_class: shutter
+        friendly_name: "Tapparella Sala"
+        position_template: "{{ state_attr('cover.dummy_cover','current_position') | int }}"
+        open_cover:
+          service: cover.open_cover
+          data:
+            entity_id: cover.dummy_cover
+        close_cover:
+          service: cover.close_cover
+          data:
+            entity_id: cover.dummy_cover
+        stop_cover:
+          service: cover.stop_cover
+          data:
+            entity_id: cover.dummy_cover
+        set_cover_position:
+          service: cover.set_cover_position
+          data:
+            entity_id: cover.dummy_cover
+            position: "{{ state_attr('cover.cover_1','position') | int }}"
+        icon_template: >-                                                    
+          {% if state_attr('cover.dummy_cover','current_position') | int == 0 %}                                                                             
+            mdi:view-headline                                                          
+          {% elif state_attr('cover.dummy_cover','current_position') | int > 0 and state_attr('cover.dummy_cover','current_position') | int < 10 %}      
+            mdi:window-shutter             
+          {% elif state_attr('cover.dummy_cover','current_position') | int >= 10 and state_attr('cover.dummy_cover','current_position') | int < 80 %}      
+            mdi:window-shutter-alert                                                                                                                                                                                
+          {% elif state_attr('cover.dummy_cover','current_position') | int >= 80 %}                                                                           
+            mdi:window-shutter-open
+          {% else %}
+            mdi:window-shutter-alert                                                                                                                                                                                                                                                                                                                                  
+          {% endif %}                                                                                                                        
