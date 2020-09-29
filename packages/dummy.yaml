@@ -1,0 +1,52 @@
+########################
+
+input_number:
+  dummy_temperature:
+    name: "Temperature"
+    initial: 20
+    min: 18
+    max: 30
+    step: 0.1
+    
+input_boolean:
+  dummy_switch:
+    name: "Switch"
+  dummy_light:
+    name: "Light"
+
+# SENSORE TEMPERATURA
+sensor:
+  - platform: template
+    sensors:
+      dummy_temperature:
+        friendly_name: "Temperature"
+        value_template: "{{ states('input_number.dummy_temperature') | float(2) }}"
+
+# SWITCH
+switch:
+
+- platform: template
+  switches:
+    dummy_switch:
+      friendly_name: "Switch"
+      value_template: "{{ is_state('input_boolean.dummy_switch','om') }}"
+      turn_on:
+        service: input_boolean.turn_on
+        entity_id: input_boolean.dummy_switch
+      turn_off:
+        service: input_boolean.turn_off
+        entity_id: input_boolean.dummy_switch
+
+# LIGHT
+light:
+
+- platform: template
+  lights:
+    dummy_light:
+      friendly_name: "Light"
+      turn_on:
+        service: input_boolean.turn_on
+        entity_id: input_boolean.dummy_light
+      turn_off:
+        service: input_boolean.turn_off
+        entity_id: input_boolean.dummy_light
