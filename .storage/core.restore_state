@@ -13,87 +13,15 @@
                     "user_id": "7a446dd8685b4ba2a5d4f2c15a558437",
                     "friendly_name": "snakuzzo"
                 },
-                "last_changed": "2020-09-29T12:55:26.661938+00:00",
-                "last_updated": "2020-09-29T12:55:26.661938+00:00",
+                "last_changed": "2020-09-30T00:26:42.903882+00:00",
+                "last_updated": "2020-09-30T00:26:42.903882+00:00",
                 "context": {
-                    "id": "0bb0f330025311eb8e1d23c27295fb39",
+                    "id": "9d75378602b311eb97e3cb81d51bd0e1",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
-        },
-        {
-            "state": {
-                "entity_id": "input_boolean.dummy_switch",
-                "state": "off",
-                "attributes": {
-                    "editable": false,
-                    "friendly_name": "Switch"
-                },
-                "last_changed": "2020-09-29T12:55:27.239452+00:00",
-                "last_updated": "2020-09-29T12:55:27.239452+00:00",
-                "context": {
-                    "id": "0c0911d2025311ebae352f5c08a9dd1f",
-                    "parent_id": null,
-                    "user_id": null
-                }
-            },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
-        },
-        {
-            "state": {
-                "entity_id": "input_boolean.dummy_light",
-                "state": "off",
-                "attributes": {
-                    "editable": false,
-                    "friendly_name": "Light"
-                },
-                "last_changed": "2020-09-29T12:55:27.239599+00:00",
-                "last_updated": "2020-09-29T12:55:27.239599+00:00",
-                "context": {
-                    "id": "0c091809025311eb8974a91044be0298",
-                    "parent_id": null,
-                    "user_id": null
-                }
-            },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
-        },
-        {
-            "state": {
-                "entity_id": "input_boolean.dummy_cover_switch_open",
-                "state": "off",
-                "attributes": {
-                    "editable": false,
-                    "friendly_name": "Open Cover"
-                },
-                "last_changed": "2020-09-29T12:55:27.239713+00:00",
-                "last_updated": "2020-09-29T12:55:27.239713+00:00",
-                "context": {
-                    "id": "0c091c91025311eb9adedb1bdb712566",
-                    "parent_id": null,
-                    "user_id": null
-                }
-            },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
-        },
-        {
-            "state": {
-                "entity_id": "input_boolean.dummy_cover_switch_close",
-                "state": "off",
-                "attributes": {
-                    "editable": false,
-                    "friendly_name": "Close Cover"
-                },
-                "last_changed": "2020-09-29T12:55:27.239817+00:00",
-                "last_updated": "2020-09-29T12:55:27.239817+00:00",
-                "context": {
-                    "id": "0c09209d025311eb854ddd0fdaca4999",
-                    "parent_id": null,
-                    "user_id": null
-                }
-            },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
         },
         {
             "state": {
@@ -108,15 +36,69 @@
                     "mode": "slider",
                     "friendly_name": "Temperature"
                 },
-                "last_changed": "2020-09-29T12:55:27.278643+00:00",
-                "last_updated": "2020-09-29T12:55:27.278643+00:00",
+                "last_changed": "2020-09-30T00:26:44.138797+00:00",
+                "last_updated": "2020-09-30T00:26:44.138797+00:00",
                 "context": {
-                    "id": "0c0f0d30025311eb9ae36ffcfb4e2f14",
+                    "id": "9e31a5cc02b311eb9e9845ae1d016176",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.dummy_switch",
+                "state": "off",
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Switch"
+                },
+                "last_changed": "2020-09-30T00:26:44.172382+00:00",
+                "last_updated": "2020-09-30T00:26:44.172382+00:00",
+                "context": {
+                    "id": "9e36c61202b311ebb82687e69ee343dd",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.dummy_cover_switch_open",
+                "state": "off",
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Open Cover"
+                },
+                "last_changed": "2020-09-30T00:26:44.172531+00:00",
+                "last_updated": "2020-09-30T00:26:44.172531+00:00",
+                "context": {
+                    "id": "9e36cc8c02b311eba75fb7c40feea0a7",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.dummy_cover_switch_close",
+                "state": "off",
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Close Cover"
+                },
+                "last_changed": "2020-09-30T00:26:44.172651+00:00",
+                "last_updated": "2020-09-30T00:26:44.172651+00:00",
+                "context": {
+                    "id": "9e36d15202b311eba0e86fd79592b8cc",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
         },
         {
             "state": {
@@ -130,15 +112,15 @@
                     "assumed_state": true,
                     "supported_features": 15
                 },
-                "last_changed": "2020-09-29T12:55:27.278853+00:00",
-                "last_updated": "2020-09-29T12:55:27.278853+00:00",
+                "last_changed": "2020-09-30T00:26:44.274203+00:00",
+                "last_updated": "2020-09-30T00:26:44.274203+00:00",
                 "context": {
-                    "id": "0c0f159f025311eb993fcf24731ffd23",
+                    "id": "9e464ff602b311eb9ff17921f97be6f8",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
         },
         {
             "state": {
@@ -147,15 +129,15 @@
                 "attributes": {
                     "friendly_name": "Switch"
                 },
-                "last_changed": "2020-09-29T12:55:27.293135+00:00",
-                "last_updated": "2020-09-29T12:55:27.293135+00:00",
+                "last_changed": "2020-09-30T00:26:44.298572+00:00",
+                "last_updated": "2020-09-30T00:26:44.298572+00:00",
                 "context": {
-                    "id": "0c11435c025311eba48473e098598ec0",
+                    "id": "9e4a075402b311ebaacf730e822eea16",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
         },
         {
             "state": {
@@ -164,15 +146,15 @@
                 "attributes": {
                     "friendly_name": "Open Cover"
                 },
-                "last_changed": "2020-09-29T12:55:27.293214+00:00",
-                "last_updated": "2020-09-29T12:55:27.293214+00:00",
+                "last_changed": "2020-09-30T00:26:44.298711+00:00",
+                "last_updated": "2020-09-30T00:26:44.298711+00:00",
                 "context": {
-                    "id": "0c1146ab025311eba2d66336900ee489",
+                    "id": "9e4a0d8002b311ebbd0b0fc70ba5ca63",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
         },
         {
             "state": {
@@ -181,77 +163,97 @@
                 "attributes": {
                     "friendly_name": "Close Cover"
                 },
-                "last_changed": "2020-09-29T12:55:27.293286+00:00",
-                "last_updated": "2020-09-29T12:55:27.293286+00:00",
+                "last_changed": "2020-09-30T00:26:44.298834+00:00",
+                "last_updated": "2020-09-30T00:26:44.298834+00:00",
                 "context": {
-                    "id": "0c11497f025311eb824c411d7798cde6",
+                    "id": "9e4a125802b311ebad0ab3e96f161d04",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
         },
         {
             "state": {
                 "entity_id": "automation.shellies_announce",
                 "state": "on",
                 "attributes": {
-                    "last_triggered": "2020-09-29T12:33:40.506691+00:00",
+                    "last_triggered": "2020-09-29T23:11:11.113399+00:00",
                     "mode": "single",
                     "current": 0,
                     "id": "1552268240479",
                     "friendly_name": "Shellies Announce"
                 },
-                "last_changed": "2020-09-29T12:55:27.294687+00:00",
-                "last_updated": "2020-09-29T12:55:27.294687+00:00",
+                "last_changed": "2020-09-30T00:26:44.302293+00:00",
+                "last_updated": "2020-09-30T00:26:44.302293+00:00",
                 "context": {
-                    "id": "0c118008025311ebb44abf4679671749",
+                    "id": "9e4a98ae02b311eb820afd9515260c7f",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
         },
         {
             "state": {
                 "entity_id": "automation.sonoff_announce",
                 "state": "on",
                 "attributes": {
-                    "last_triggered": "2020-09-29T12:33:40.506823+00:00",
+                    "last_triggered": "2020-09-29T23:10:11.114978+00:00",
                     "mode": "single",
                     "current": 0,
                     "id": "1552268241231",
                     "friendly_name": "Sonoff Announce"
                 },
-                "last_changed": "2020-09-29T12:55:27.294813+00:00",
-                "last_updated": "2020-09-29T12:55:27.294813+00:00",
+                "last_changed": "2020-09-30T00:26:44.302494+00:00",
+                "last_updated": "2020-09-30T00:26:44.302494+00:00",
                 "context": {
-                    "id": "0c11850d025311eb934623235af87e5b",
+                    "id": "9e4aa13a02b311eb83bfa558175c03f1",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
         },
         {
             "state": {
                 "entity_id": "automation.system_set_custom_theme_at_startup",
                 "state": "on",
                 "attributes": {
-                    "last_triggered": "2020-09-29T12:33:40.506926+00:00",
+                    "last_triggered": "2020-09-29T22:18:02.138388+00:00",
                     "mode": "single",
                     "current": 0,
                     "friendly_name": "System - Set Custom Theme at Startup"
                 },
-                "last_changed": "2020-09-29T12:55:27.294924+00:00",
-                "last_updated": "2020-09-29T12:55:27.294924+00:00",
+                "last_changed": "2020-09-30T00:26:44.302669+00:00",
+                "last_updated": "2020-09-30T00:26:44.302669+00:00",
                 "context": {
-                    "id": "0c118969025311eba71d25e5c748989d",
+                    "id": "9e4aa81c02b311eb8a16bb7c951b72ec",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.automazione_dimmer_zigbee_ikea",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": null,
+                    "mode": "restart",
+                    "current": 0,
+                    "friendly_name": "automazione_dimmer_zigbee_ikea"
+                },
+                "last_changed": "2020-09-30T00:26:44.302857+00:00",
+                "last_updated": "2020-09-30T00:26:44.302857+00:00",
+                "context": {
+                    "id": "9e4aaf7402b311eb9fd1eb7e45412dec",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
         },
         {
             "state": {
@@ -261,15 +263,71 @@
                     "friendly_name": "Luce Camera",
                     "supported_features": 0
                 },
-                "last_changed": "2020-09-29T12:55:27.349731+00:00",
-                "last_updated": "2020-09-29T12:55:27.349731+00:00",
+                "last_changed": "2020-09-30T00:26:44.339325+00:00",
+                "last_updated": "2020-09-30T00:26:44.339325+00:00",
                 "context": {
-                    "id": "0c19e662025311eb9b2b67209bd14350",
+                    "id": "9e503ff402b311eb93d39f495766576c",
                     "parent_id": null,
                     "user_id": null
                 }
             },
-            "last_seen": "2020-09-29T12:55:28.194151+00:00"
+            "last_seen": "2020-09-30T00:26:46.462381+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.dimmerable",
+                "state": "off",
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "dimmerable"
+                },
+                "last_changed": "2020-09-29T23:32:14.483319+00:00",
+                "last_updated": "2020-09-29T23:32:14.483319+00:00",
+                "context": {
+                    "id": "0153d1b602ac11ebad192f9940d82910",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T23:32:15.279487+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "automation.automazione_dimmer_zigbee_su",
+                "state": "on",
+                "attributes": {
+                    "last_triggered": "2020-09-29T22:18:38.515647+00:00",
+                    "mode": "restart",
+                    "current": 0,
+                    "friendly_name": "automazione_dimmer_zigbee_su"
+                },
+                "last_changed": "2020-09-29T23:32:14.605499+00:00",
+                "last_updated": "2020-09-29T23:32:14.605499+00:00",
+                "context": {
+                    "id": "0166767402ac11ebb93c9fa3e421f1e1",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T23:32:15.279487+00:00"
+        },
+        {
+            "state": {
+                "entity_id": "input_boolean.dummy_light",
+                "state": "off",
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Light"
+                },
+                "last_changed": "2020-09-29T20:05:02.587613+00:00",
+                "last_updated": "2020-09-29T20:05:02.587613+00:00",
+                "context": {
+                    "id": "0f5713c6028f11eba10fd948d5da66b5",
+                    "parent_id": null,
+                    "user_id": null
+                }
+            },
+            "last_seen": "2020-09-29T20:05:03.290086+00:00"
         },
         {
             "state": {

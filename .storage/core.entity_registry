@@ -1132,11 +1132,27 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
                 "original_name": "Slider",
+                "original_icon": null
+            },
+            {
+                "entity_id": "input_boolean.dimmerable",
+                "config_entry_id": null,
+                "device_id": null,
+                "unique_id": "dimmerable",
+                "platform": "input_boolean",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "dimmerable",
                 "original_icon": null
             }
         ]
