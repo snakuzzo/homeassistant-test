@@ -7,6 +7,7 @@
 *.csr
 *.key
 __pycache__/
+.HA_VERSION
 # Storage directory except lovelace config
 !.storage/
 .storage/*
