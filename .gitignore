@@ -7,6 +7,7 @@
 *.csr
 *.key
 __pycache__/
+.storage/
 #.google.token
 .uuid
 icloud/

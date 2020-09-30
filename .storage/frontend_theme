@@ -1,8 +1,0 @@
-{
-    "version": 1,
-    "key": "frontend_theme",
-    "data": {
-        "frontend_default_theme": "Green Dark Mode",
-        "frontend_default_dark_theme": null
-    }
-}
