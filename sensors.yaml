@@ -8,8 +8,3 @@
     - 'time_utc'
     - 'beat'
 
-- platform: command_line
-  name: Latest Tasmota Version
-  command: 'curl https://api.github.com/repos/arendst/Tasmota/releases/latest -s | jq .name -r'
-  scan_interval: 30
-  value_template: "{{ value.split()[1] | replace('v','') }}"
