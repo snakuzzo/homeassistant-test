@@ -1,7 +1,0 @@
-binary_sensor:
-  - platform: mqtt
-    name: "yi_camera_01_motion"
-    state_topic: "yicam01/motion_detection"
-    payload_on: "motion_start"
-    payload_off: "motion_stop"
-    device_class: "motion"

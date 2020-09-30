@@ -1,0 +1,33 @@
+sensor:
+  
+- platform: command_line
+  name: Latest Tasmota Version
+  command: 'curl https://api.github.com/repos/arendst/Tasmota/releases/latest -s | jq .name -r'
+  scan_interval: 30
+  value_template: "{{ value.split()[1] | replace('v','') }}"
+
+- platform: mqtt
+  name: My Tasmota Version
+  state_topic: "stat/sonoff-camera/STATUS2"
+  availability_topic: "tele/sonoff-camera/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  value_template: "{{ value_json['StatusFWR'].Version.split('(')[0] }}"
+
+light:
+
+- platform: mqtt
+  name: "Luce Camera"
+  state_topic: "stat/sonoff-camera/RESULT"
+  value_template: "{{ value_json.POWER }}"
+  command_topic: "cmnd/sonoff-camera/POWER"
+  availability_topic: "tele/sonoff-camera/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+
+

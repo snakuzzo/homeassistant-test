@@ -1,5 +1,4 @@
-- id: '1552268240479'
-  alias: Shellies Announce
+- alias: Shellies Announce
   trigger:
   - platform: homeassistant
     event: start
@@ -11,23 +10,22 @@
       topic: shellies/command
     service: mqtt.publish
     
-- id: '1552268241231'
-  alias: Sonoff Announce
+- alias: Sonoff Announce
   trigger:
   - event: start
     platform: homeassistant
   - platform: time_pattern
     minutes: /58
   action:
-  - data:
+  - service: mqtt.publish
+    data:
       topic: cmnd/tasmotas/POWER
-    service: mqtt.publish
-  - data:
-      topic: cmnd/tasmotas/SHUTTERPOSITION
-    service: mqtt.publish
+  - service: mqtt.publish
+    data:
+      topic: cmnd/tasmotas-shutters/SHUTTERPOSITION
+    
 
-
-- alias: 'System - Set Custom Theme at Startup'
+- alias: 'System - Set Backend Theme at Startup'
   trigger:
     platform: homeassistant
     event: start
