@@ -1,0 +1,75 @@
+# La logica dell'automazione si basa sul "click" del payload del topic che pubblica il pulsante IKEA
+# brightness_up -> dimmer up
+# brightness_down -> dimmer down
+# brightness_stop -> dimmer stop
+
+automation:     
+
+- alias: automazione_dimmer_zigbee_ikea
+  initial_state: true
+  # Imposto modalità restart perché se arriva un'altra publish dello stesso device...
+  # ...devo interrompere quello che sto facendo e rieseguire l'automazione da capo
+  mode: restart
+  trigger:
+  # L'automazione viene triggerata quando viene pubblicato il topic del pulsante IKEA...
+  - platform: mqtt
+    topic: 'Zigbee7634/pulsante_ikea'
+  action:
+  # Qui utilizzo la choose per valutare se dimmerare oppure fermarmi...
+  - choose:
+    ########################
+    # BLOCCO PER DIMMERARE #
+    ########################
+    - conditions:
+      - condition: or
+        conditions:
+        # Se brightness_down...
+        - condition: template
+          value_template: "{{ trigger.payload_json.click == 'brightness_down' }}"
+        # ...oppure brightness_up
+        - condition: template
+          value_template: "{{ trigger.payload_json.click == 'brightness_up' }}"
+      sequence:
+      - repeat:
+          # Finché...
+          until:
+          - condition: or
+            conditions:
+            # ...la luce non si spegne...
+            - condition: state
+              entity_id: light.dummy_light
+              state: 'off'
+            # ...oppure la luce non è alla massima luminosità...
+            - condition: template
+              value_template: "{{ state_attr('light.dummy_light','brightness') | int == 255 }}"
+          # ...ripeto i seguenti passaggi:
+          sequence:
+          # Chiamo il servizio light.turn_on...
+          - service: light.turn_on
+            entity_id: light.dummy_light
+            data:
+              # ...aumentando o diminuendo la luminosità di 5...
+              brightness: >-
+                {% if trigger.payload_json.click == 'brightness_up' %}
+                  {{ state_attr('light.dummy_light','brightness') | int + 5 }}
+                {% else %}
+                  {{ state_attr('light.dummy_light','brightness') | int - 5 }}
+                {% endif %}
+          # ...e aspetto un numero preciso di millisecondi
+          # ...per rallentare e rendere più fluido il cambio di luminosità
+          - delay:
+              milliseconds: 70
+    ######################
+    # BLOCCO PER FERMARE #
+    ######################
+    - conditions:
+      # Se brightness_stop
+      - condition: template
+        value_template: "{{ trigger.payload_json.click == 'brightness_stop' }}"
+      # ...Aspetto 1 millisecondo. In pratica non faccio nulla. 
+      # Mi serve solo per interrompere il dimmer
+      sequence:
+      - delay:
+          milliseconds: 1
+      # Questo accade perché l'automazione è impostata con mode repeat e quindi quando viene
+      # ...nuovamente triggerata, interrompe quello che stava facendo e viene eseguita da capo
