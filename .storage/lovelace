@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "key": "lovelace",
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "light.dummy_light"
+                                },
+                                {
+                                    "entity": "switch.dummy_switch"
+                                },
+                                {
+                                    "entity": "cover.dummy_cover"
+                                },
+                                {
+                                    "entity": "cover.dummy_cover",
+                                    "full_row": true,
+                                    "type": "custom:slider-entity-row",
+                                    "step": 1
+                                },
+                                {
+                                    "entity": "sensor.dummy_temperature"
+                                },
+                                {
+                                    "entity": "input_number.dummy_temperature"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Dummy",
+                            "state_color": true
+                        }
+                    ],
+                    "path": "default_view",
+                    "title": "Home"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "id": "112ff33ac59941eca964f5f8e25e5242",
+                "type": "module",
+                "url": "/local/slider-entity-row.js?v=2"
+            }
+        ]
+    }
+}

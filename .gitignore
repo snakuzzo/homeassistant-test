@@ -7,7 +7,11 @@
 *.csr
 *.key
 __pycache__/
-.storage/
+# Storage directory except lovelace config
+!.storage/
+.storage/*
+!.storage/lovelace
+!.storage/lovelace_resources
 #.google.token
 .uuid
 icloud/
