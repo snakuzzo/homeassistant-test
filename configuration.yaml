@@ -80,6 +80,8 @@ tts:
 #  gender: female
 #  voice: it-IT-Standard-B
 
+stream:
+  
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml

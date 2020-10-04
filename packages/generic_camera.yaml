@@ -1,0 +1,10 @@
+# Abilitare in configuration.yaml...
+#
+# stream:
+#
+
+camera:
+- platform: generic
+  name: Prova Camera
+  still_image_url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Camera-IMG_1961.JPG/600px-Camera-IMG_1961.JPG
+  stream_source: rtsp://192.168.1.21/ch0_0.h264
