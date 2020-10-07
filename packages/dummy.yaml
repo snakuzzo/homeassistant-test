@@ -40,7 +40,7 @@ switch:
         entity_id: input_boolean.dummy_switch
     dummy_cover_switch_open:
       friendly_name: "Open Cover"
-      value_template: "{{ is_state('input_boolean.dummy_cover_switch_open','om') }}"
+      value_template: "{{ is_state('input_boolean.dummy_cover_switch_open','on') }}"
       turn_on:
         service: input_boolean.turn_on
         entity_id: input_boolean.dummy_cover_switch_open
@@ -49,7 +49,7 @@ switch:
         entity_id: input_boolean.dummy_cover_switch_open
     dummy_cover_switch_close:
       friendly_name: "Close Cover"
-      value_template: "{{ is_state('input_boolean.dummy_cover_switch_close','om') }}"
+      value_template: "{{ is_state('input_boolean.dummy_cover_switch_close','on') }}"
       turn_on:
         service: input_boolean.turn_on
         entity_id: input_boolean.dummy_cover_switch_close
