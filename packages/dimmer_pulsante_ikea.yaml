@@ -1,4 +1,4 @@
-# La logica dell'automazione si basa sul "click" del payload del topic che pubblica il pulsante IKEA
+# La logica dell'automazione si basa sul "action" del payload del topic che pubblica il pulsante IKEA
 # brightness_up -> dimmer up
 # brightness_down -> dimmer down
 # brightness_stop -> dimmer stop
@@ -25,10 +25,10 @@ automation:
         conditions:
         # Se brightness_down...
         - condition: template
-          value_template: "{{ trigger.payload_json.click == 'brightness_down' }}"
+          value_template: "{{ trigger.payload_json.action == 'brightness_down' }}"
         # ...oppure brightness_up
         - condition: template
-          value_template: "{{ trigger.payload_json.click == 'brightness_up' }}"
+          value_template: "{{ trigger.payload_json.action == 'brightness_up' }}"
       sequence:
       - repeat:
           # Finché...
@@ -50,7 +50,7 @@ automation:
             data:
               # ...aumentando o diminuendo la luminosità di 5...
               brightness: >-
-                {% if trigger.payload_json.click == 'brightness_up' %}
+                {% if trigger.payload_json.action == 'brightness_up' %}
                   {{ state_attr('light.dummy_light','brightness') | int + 5 }}
                 {% else %}
                   {{ state_attr('light.dummy_light','brightness') | int - 5 }}
@@ -65,7 +65,7 @@ automation:
     - conditions:
       # Se brightness_stop
       - condition: template
-        value_template: "{{ trigger.payload_json.click == 'brightness_stop' }}"
+        value_template: "{{ trigger.payload_json.action == 'brightness_stop' }}"
       # ...Aspetto 1 millisecondo. In pratica non faccio nulla. 
       # Mi serve solo per interrompere il dimmer
       sequence:

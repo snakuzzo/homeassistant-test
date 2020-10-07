@@ -1,0 +1,11 @@
+# Example configuration.yaml entry
+sensor:
+
+  - platform: history_stats
+    name: Light On Timer
+    entity_id: light.dummy_light
+    state: 'on'
+    type: time
+    start: '{{ now().replace(hour=1, minute=55, second=0) }}'
+    duration:
+      hours: 1
