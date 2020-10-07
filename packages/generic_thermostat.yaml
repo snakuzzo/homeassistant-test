@@ -1,0 +1,15 @@
+climate:
+
+  - platform: generic_thermostat
+    name: Riscaldamento 
+    heater: switch.dummy_switch
+    target_sensor: sensor.dummy_temperature
+    min_temp: 10
+    max_temp: 25
+    ac_mode: false
+    target_temp: 17
+    min_cycle_duration:
+      seconds: 30
+    #initial_hvac_mode: "off"
+    away_temp: 10
+    precision: 0.1
