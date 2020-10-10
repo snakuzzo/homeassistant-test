@@ -49,17 +49,20 @@ mqtt:
   port: 1883
   username: !secret mosquitto_user
   password: !secret mosquitto_passwd
-  client_id: home-assistant-ubuntu
+  client_id: !secret mosquitto_client
   keepalive: 60
   discovery: true
   discovery_prefix: homeassistant
   birth_message:
     topic: 'hass-ubuntu/status'
     payload: 'online'
+    retain: true
+    qos: 1
   will_message:
     topic: 'hass-ubuntu/status'
     payload: 'offline'
-  
+    retain: true
+    qos: 1
 # api
 api:
 
