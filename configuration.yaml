@@ -45,8 +45,8 @@ system_health:
 
 # MQTT
 mqtt:
-  broker: 192.168.1.10
-  port: 1883
+  broker: !secret mosquitto_ip
+  port: !secret mosquitto_port
   username: !secret mosquitto_user
   password: !secret mosquitto_passwd
   client_id: !secret mosquitto_client
@@ -54,12 +54,12 @@ mqtt:
   discovery: true
   discovery_prefix: homeassistant
   birth_message:
-    topic: 'hass-ubuntu/status'
+    topic: !secret mosquitto_lwt
     payload: 'online'
     retain: true
     qos: 1
   will_message:
-    topic: 'hass-ubuntu/status'
+    topic: !secret mosquitto_lwt
     payload: 'offline'
     retain: true
     qos: 1
@@ -82,6 +82,8 @@ tts:
 #  language: it-IT
 #  gender: female
 #  voice: it-IT-Standard-B
+
+shopping_list:
 
 stream:
   
