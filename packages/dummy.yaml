@@ -3,7 +3,7 @@
 input_number:
   dummy_temperature:
     name: "Temperature"
-    initial: 20
+    #initial: 20
     min: 18
     max: 30
     step: 0.1
@@ -65,12 +65,11 @@ light:
     dummy_light:
       friendly_name: "Light"
       turn_on:
-      #  service: input_boolean.turn_on
-      #  entity_id: input_boolean.dummy_light
+        service: input_boolean.turn_on
+        entity_id: input_boolean.dummy_light
       turn_off:
-      #  service: input_boolean.turn_off
-      #  entity_id: input_boolean.dummy_light
-      set_level:
+        service: input_boolean.turn_off
+        entity_id: input_boolean.dummy_light
 
 # COVER
 cover:
