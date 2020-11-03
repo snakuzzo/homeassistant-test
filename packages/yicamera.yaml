@@ -1,0 +1,61 @@
+binary_sensor:
+
+  - platform: mqtt
+    name: "yi_camera_01_motion"
+    state_topic: "yicam01/motion_detection"
+    payload_on: "motion_start"
+    payload_off: "motion_stop"
+    device_class: "motion" 
+
+  - platform: mqtt
+    name: "yi_camera_02_motion"
+    state_topic: "yicam02/motion_detection"
+    payload_on: "motion_start"
+    payload_off: "motion_stop"
+    device_class: "motion"
+
+automation:
+
+- alias: Motion Detection
+  trigger:
+  - platform: state
+    entity_id: 
+    - binary_sensor.yi_camera_01_motion
+    - binary_sensor.yi_camera_02_motion
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.away_switch
+      state: 'on'
+  action:
+  - service: notify.telegram_diego
+    data:
+      message: "Presenza rilevata da {{ trigger.to_state.attributes.friendly_name }}"
+      title: "ATTENZIONE!!!"
+  - service: shell_command.yi01_image
+  - service: shell_command.yi02_image
+      
+camera: 
+
+- platform: local_file
+  name: yi_camera_01_image
+  file_path: /home/snakuzzo/.homeassistant/www/yi_files/yi01_demo.jpg
+
+- platform: local_file
+  name: yi_camera_02_image
+  file_path: /home/snakuzzo/.homeassistant/www/yi_files/yi02_demo.jpg
+
+- platform: generic
+  name: Soggiorno
+  still_image_url: http://127.0.0.1:8123/local/yi_files/yi01_demo.jpg
+  stream_source: rtsp://192.168.1.21/ch0_0.h264
+
+- platform: generic
+  name: Camera
+  still_image_url: http://127.0.0.1:8123/local/yi_files/yi02_demo.jpg
+  stream_source: rtsp://192.168.1.22/ch0_0.h264
+
+shell_command:
+
+  yi01_image: curl "https://www.lacasamoderna.com/public/prodotti/big_41212_Soggiorno%202.jpg" --output ~/.homeassistant/www/yi_files/yi01_demo.jpg
+  yi02_image: curl "https://www.arredoshop.it/5017-large_default/camera-da-letto-giulia.jpg" --output ~/.homeassistant/www/yi_files/yi02_demo.jpg

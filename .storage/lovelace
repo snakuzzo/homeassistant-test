@@ -40,6 +40,16 @@
                         {
                             "type": "thermostat",
                             "entity": "climate.riscaldamento"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.sensore_di_prova"
+                                }
+                            ],
+                            "title": "MQTT Sensor",
+                            "show_header_toggle": false
                         }
                     ],
                     "path": "default_view",

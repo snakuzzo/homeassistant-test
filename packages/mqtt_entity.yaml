@@ -1,0 +1,6 @@
+sensor:
+
+- platform: mqtt
+  name: "Sensore di prova"
+  state_topic: "Moist1"
+  value_template: "{{ 'Dry' if value | int < 70 else 'Rain' }}"

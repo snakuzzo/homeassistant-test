@@ -11,8 +11,8 @@ homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
 
-#logger:
-#  default: info
+logger:
+  default: warning
 #  logs:
 #    homeassistant.automations: debug
 
