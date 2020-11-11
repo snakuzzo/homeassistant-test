@@ -1,0 +1,94 @@
+# STATO DEL BRIDGE
+
+binary_sensor:
+
+- platform: mqtt
+  name: "Z2T Bridge"
+  state_topic: "tele/z2t/LWT"
+  payload_on: "Online"
+  payload_off: "Offline"
+  device_class: "connectivity"
+
+# SWITCH
+
+switch:
+
+# STATE_TOPIC
+# tele/presa_ikea/SENSOR = {"presa_ikea":{"Device":"0x3442","Name":"presa_ikea","Power":1,"Endpoint":1,"LinkQuality":55}}
+#
+# COMMAND_TOPIC
+# cmnd/z2t/ZbSend
+
+- platform: mqtt
+  name: "presa_ikea_switch"
+  state_topic: "tele/presa_ikea/SENSOR"
+  command_topic: "cmnd/z2t/ZbSend"
+  value_template: >
+    {% if 'Power' in value_json['presa_ikea'] %}
+      {{ value_json['presa_ikea'].Power }}
+    {% else %}
+      {{ states('switch.presa_ikea_switch') }}
+    {% endif %}
+  payload_on: '{ "Device":"0x3442", "send":{"Power":1} }'
+  payload_off: '{ "Device":"0x3442", "send":{"Power":0} }'
+  state_on: '1'
+  state_off: '0'
+  availability_topic: "tele/z2t/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  optimistic: false
+  qos: 1
+  retain: false
+
+# SENSORE LINK QUALITY
+
+#sensor:
+
+#- platform: mqtt
+#  name: "Presa Ikea LinkQuality"
+#  state_topic: "tele/z2t/A6BC/SENSOR"
+#  availability_topic: "tele/z2t/LWT"
+#  payload_available: "Online"
+#  payload_not_available: "Offline"
+#  value_template: >
+#    {% if 'LinkQuality' in value_json.ZbReceived['0x3442'] %}
+#      {{ value_json.ZbReceived['0x3442'].LinkQuality }}
+#    {% else %}
+#      {{ states('sensor.presa_ikea_linkquality') }}
+#    {% endif %}
+#  device_class: "signal_strength"
+#
+#
+
+## AUTOMAZIONI
+
+automation:
+
+- alias: 'presa_ikea_announce'
+  description: 'Automazione per il recupero dello stato quando viene avviato HA'
+  trigger:
+  - event: start
+    platform: homeassistant
+  action:
+  - data:
+      topic: cmnd/z2t/ZbSend
+      payload: '{"Device":"0x3442","Endpoint":1,"cluster":6,"read":0}'
+    service: mqtt.publish
+
+#- alias: 'presa_ikea_accendi_spegni'
+#  description: 'Automazione di esempio per spegnere e accendere la presa ad orari stabiliti'
+#  trigger:
+#  - platform: time
+#    at: "08:00:00"
+#  - platform: time
+#    at: "20:30:00"
+#  action:
+#  - service: mqtt.publish
+#    data:
+#      topic: cmnd/z2t/ZbSend
+#      payload_template: >-
+#        {% if now().strftime("%H:%M") == '08:00' %}
+#          { "device":"0x3442", "endpoint":"0x01", "send":{"Power":"Off"} }
+#        {% else %}
+#          { "device":"0x3442", "endpoint":"0x01", "send":{"Power":"On"} }
+#        {% endif %}
