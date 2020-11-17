@@ -1,0 +1,14 @@
+automation:
+
+- alias: "Accesso Fallito Home Hassistant "
+  trigger:
+    platform: state
+    entity_id: persistent_notification.http_login
+  condition:
+  - condition: template
+    value_template: "{{ trigger.to_state.state != 'None' }}"
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Accesso Fallito
+      message:  "In Data: {{as_timestamp(now()) | timestamp_custom('%d/%m/%Y - Alle Ore: %T', True) }}  ACCESSO FALLITO! da {{ (state_attr('persistent_notification.http_login','message').split('from ') [1]).split('(')[0] }} "
