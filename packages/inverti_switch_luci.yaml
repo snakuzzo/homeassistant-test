@@ -1,0 +1,41 @@
+input_boolean:
+  stato_luci:
+  inverti_luci:
+
+
+automation:
+- alias: Inverti Luci e Switch
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.inverti_luci
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: 'input_boolean.stato_luci'
+        state: 'off'
+      sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.dummy_switch
+      - service: light.turn_off
+        data:
+          entity_id: light.dummy_light
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.stato_luci
+    - conditions:
+      - condition: state
+        entity_id: 'input_boolean.stato_luci'
+        state: 'on'
+      sequence:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.dummy_switch
+      - service: light.turn_on
+        data:
+          entity_id: light.dummy_light
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.stato_luci
