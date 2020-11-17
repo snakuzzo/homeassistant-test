@@ -52,7 +52,7 @@ mqtt:
   client_id: !secret mosquitto_client
   keepalive: 60
   discovery: true
-  discovery_prefix: homeassistant
+  discovery_prefix: !secret mosquitto_ha_discovery_topic
   birth_message:
     topic: !secret mosquitto_lwt
     payload: 'online'
