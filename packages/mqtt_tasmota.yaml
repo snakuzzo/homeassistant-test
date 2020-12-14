@@ -16,6 +16,7 @@ sensor:
 
 light:
 
+# SONOFF MINI
 - platform: mqtt
   name: "Luce Camera"
   state_topic: "stat/sonoff-camera/RESULT"
