@@ -45,14 +45,17 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "switch.presa_ikea_switch"
+                                    "entity": "light.comodino_diego"
                                 },
                                 {
-                                    "entity": "automation.presa_ikea_announce"
+                                    "entity": "light.luce_cameretta"
+                                },
+                                {
+                                    "entity": "light.luce_camera"
                                 }
                             ],
+                            "title": "Shelly & Tasmota",
                             "show_header_toggle": false,
-                            "title": "Zigbee2Tasmota",
                             "state_color": true
                         }
                     ],
