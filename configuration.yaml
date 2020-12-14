@@ -12,9 +12,11 @@ homeassistant:
   packages: !include_dir_named packages
 
 logger:
-  default: warning
-#  logs:
-#    homeassistant.automations: debug
+  default: info
+  logs:
+    homeassistant.components.automations: debug
+
+logbook:
 
 # Discovery
 ssdp:
@@ -39,7 +41,9 @@ recorder:
 
 history:
 
-
+upnp:
+  local_ip: 192.168.1.30
+  
 # Systetm Health
 system_health:
 
