@@ -1,0 +1,27 @@
+automation:
+
+- alias: PIPPO
+  trigger:
+    platform: event
+    event_type: state_changed
+    event_data:
+        entity_id: "light.luce_cameretta"
+  condition:
+  - condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ trigger.event.data.new_state.state != trigger.event.data.old_state.state }}"
+    - condition: template
+      value_template: "{{ trigger.event.data.new_state.state != 'unavailable' }}"
+    - condition: template
+      value_template: "{{ trigger.event.data.old_state.state != 'unavailable' }}"
+  action:
+  - service: persistent_notification.create
+    data:
+      title: User ID
+      message: >
+        {% if trigger.event.data.new_state.context.user_id == None %}
+          Something inside HA changed {{ trigger.event.data.entity_id }} to {{ trigger.event.data.new_state.state }}
+        {% else %}
+          User {{ trigger.event.data.new_state.context.user_id }} changed {{ trigger.event.data.entity_id }} to {{ trigger.event.data.new_state.state }}
+        {% endif %}
