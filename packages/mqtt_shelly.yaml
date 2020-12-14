@@ -1,0 +1,40 @@
+light:
+  
+# SHELLY 1
+- platform: mqtt
+  name: "Comodino Diego"
+  state_topic: "shellies/shelly1-98F4ABF298AD/relay/0"
+  command_topic: "shellies/shelly1-98F4ABF298AD/relay/0/command"
+  availability_topic: "shellies/shelly1-98F4ABF298AD/online" 
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"
+  payload_available: "true"
+  payload_not_available: "false"
+  optimistic: false
+  retain: false  
+
+# SHELLY DIMMER
+- platform: mqtt
+  schema: template
+  name: Luce Cameretta
+  command_topic: "shellies/shellydimmer-D46F0A/light/0/set"
+  state_topic: "shellies/shellydimmer-D46F0A/light/0/status"
+  availability_topic: "shellies/shellydimmer-D46F0A/online"
+  payload_available: "true"
+  payload_not_available: "false"
+  command_on_template: >
+    {"turn": "on"
+      {% if brightness is defined %} 
+        , "brightness": {{ brightness | float | multiply(0.3922) | round(0) }}
+      {% endif %}
+    }
+  state_template: > 
+    {% if value_json.ison %}
+      on
+    {% else %}
+      off
+    {% endif %}
+  brightness_template: "{{ value_json.brightness | float | multiply(2.55) | round(0) }}"
+  command_off_template: '{"turn":"off"}'
+  qos: 1
