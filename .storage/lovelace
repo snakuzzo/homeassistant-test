@@ -57,6 +57,26 @@
                             "title": "Shelly & Tasmota",
                             "show_header_toggle": false,
                             "state_color": true
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "climate.riscaldamento"
+                                },
+                                {
+                                    "entity": "input_datetime.orario_giorno"
+                                },
+                                {
+                                    "entity": "input_number.temperatura_giorno"
+                                },
+                                {
+                                    "entity": "input_datetime.orario_notte"
+                                },
+                                {
+                                    "entity": "input_number.temperatura_notte"
+                                }
+                            ]
                         }
                     ],
                     "path": "default_view",

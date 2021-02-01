@@ -6,16 +6,22 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Rome
   #external_url: !secret external_url
-  internal_url: http://localhost:8123
+  internal_url: !secret internal_url 
   # Customization file
   customize: !include customize.yaml
   packages: !include_dir_named packages
+  allowlist_external_dirs:
+    - "/home/snakuzzo/.homeassistant"
 
-logger:
-  default: info
-  logs:
-    homeassistant.components.automations: debug
 
+#http:
+#  ssl_certificate: /home/snakuzzo/ssl/fullchain.pem
+#  ssl_key: /home/snakuzzo/ssl/privkey.pem
+#logger:
+#  default: info
+  #logs:
+    #homeassistant.components.automations: debug
+  #  homeassistant.bootstrap: info
 logbook:
 
 # Discovery
@@ -67,6 +73,11 @@ mqtt:
     payload: 'offline'
     retain: true
     qos: 1
+
+duckdns:
+  domain: !secret duckdns_domain
+  access_token: !secret duckdns_access_token
+
 # api
 api:
 

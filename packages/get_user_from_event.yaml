@@ -1,6 +1,6 @@
 automation:
 
-- alias: PIPPO
+- alias: Notify event
   trigger:
     platform: event
     event_type: state_changed

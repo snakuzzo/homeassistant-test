@@ -5,7 +5,8 @@ binary_sensor:
     state_topic: "yicam01/motion_detection"
     payload_on: "motion_start"
     payload_off: "motion_stop"
-    device_class: "motion" 
+    device_class: "motion"
+    #off_delay: 10
 
   - platform: mqtt
     name: "yi_camera_02_motion"
@@ -13,8 +14,23 @@ binary_sensor:
     payload_on: "motion_start"
     payload_off: "motion_stop"
     device_class: "motion"
+    #off_delay: 10
 
 automation:
+
+- alias: Reset Motion Detection
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - service: mqtt.publish
+    data:
+      topic: yicam01/motion_detection
+      payload: motion_stop
+  - service: mqtt.publish
+    data:
+      topic: yicam02/motion_detection
+      payload: motion_stop
 
 - alias: Motion Detection
   trigger:
@@ -34,28 +50,61 @@ automation:
       title: "ATTENZIONE!!!"
   - service: shell_command.yi01_image
   - service: shell_command.yi02_image
-      
+
+script:
+  
+  reset_motion_detection:
+    sequence:
+      - service: automation.trigger
+        data:
+          entity_id: automation.reset_motion_detection
+
+rest_command:
+  reboot_yi_camera_01:
+    url: 'http://192.168.1.21:8080/cgi-bin/reboot.sh'
+  reboot_yi_camera_02:
+    url: 'http://192.168.1.22:8080/cgi-bin/reboot.sh'
+
+
 camera: 
 
-- platform: local_file
-  name: yi_camera_01_image
-  file_path: /home/snakuzzo/.homeassistant/www/yi_files/yi01_demo.jpg
+#- platform: local_file
+#  name: yi_camera_01_image
+#  file_path: /home/homeassistant/.homeassistant/www/yi_files/yi01.jpg
 
-- platform: local_file
-  name: yi_camera_02_image
-  file_path: /home/snakuzzo/.homeassistant/www/yi_files/yi02_demo.jpg
+#- platform: local_file
+#  name: yi_camera_02_image
+#  file_path: /home/homeassistant/.homeassistant/www/yi_files/yi02.jpg
 
 - platform: generic
   name: Soggiorno
-  still_image_url: http://127.0.0.1:8123/local/yi_files/yi01_demo.jpg
+  still_image_url: http://localhost:8123/local/yi_files/yi01.jpg
   stream_source: rtsp://192.168.1.21/ch0_0.h264
 
 - platform: generic
   name: Camera
-  still_image_url: http://127.0.0.1:8123/local/yi_files/yi02_demo.jpg
+  still_image_url: http://localhost:8123/local/yi_files/yi02.jpg
   stream_source: rtsp://192.168.1.22/ch0_0.h264
 
 shell_command:
 
-  yi01_image: curl "https://www.lacasamoderna.com/public/prodotti/big_41212_Soggiorno%202.jpg" --output ~/.homeassistant/www/yi_files/yi01_demo.jpg
-  yi02_image: curl "https://www.arredoshop.it/5017-large_default/camera-da-letto-giulia.jpg" --output ~/.homeassistant/www/yi_files/yi02_demo.jpg
+  yi01_image: curl "http://192.168.1.21:8080/cgi-bin/snapshot.sh?res=low&watermark=yes" --output ~/.homeassistant/www/yi_files/yi01.jpg
+  yi02_image: curl "http://192.168.1.22:8080/cgi-bin/snapshot.sh?res=low&watermark=yes" --output ~/.homeassistant/www/yi_files/yi02.jpg
+
+switch:
+  
+  - platform: command_line
+    switches:
+      yi01_camera_video:
+        command_on: "/usr/bin/curl -s -X GET http://192.168.1.21:8080/cgi-bin/camera_settings.sh?switch_on=yes"
+        command_off: "/usr/bin/curl -s -X GET http://192.168.1.21:8080/cgi-bin/camera_settings.sh?switch_on=no"
+        command_state: "/usr/bin/curl -s -X GET http://192.168.1.21:8080/cgi-bin/get_configs.sh?conf=camera"
+        value_template: '{{ value_json.SWITCH_ON == "yes" }}'
+        friendly_name: "YI Camera 01 Video"
+
+      yi02_camera_video:
+        command_on: "/usr/bin/curl -s -X GET http://192.168.1.22:8080/cgi-bin/camera_settings.sh?switch_on=yes"
+        command_off: "/usr/bin/curl -s -X GET http://192.168.1.22:8080/cgi-bin/camera_settings.sh?switch_on=no"
+        command_state: "/usr/bin/curl -s -X GET http://192.168.1.22:8080/cgi-bin/get_configs.sh?conf=camera"
+        value_template: '{{ value_json.SWITCH_ON == "yes" }}'
+        friendly_name: "YI Camera 02 Video"

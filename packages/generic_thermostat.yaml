@@ -1,15 +1,59 @@
 climate:
 
-  - platform: generic_thermostat
-    name: Riscaldamento 
-    heater: switch.dummy_switch
-    target_sensor: sensor.dummy_temperature
-    min_temp: 10
-    max_temp: 25
-    ac_mode: false
-    target_temp: 17
-    min_cycle_duration:
-      seconds: 30
-    #initial_hvac_mode: "off"
-    away_temp: 10
-    precision: 0.1
+- platform: generic_thermostat
+  name: Riscaldamento 
+  heater: switch.dummy_switch
+  target_sensor: sensor.dummy_temperature
+  min_temp: 10
+  max_temp: 25
+  ac_mode: false
+  target_temp: 17
+  min_cycle_duration:
+    seconds: 30
+  #initial_hvac_mode: "off"
+  away_temp: 10
+  precision: 1.0
+
+
+input_datetime:
+  orario_giorno:
+    name: Orario Giorno
+    has_date: false
+    has_time: true
+  orario_notte:
+    name: Orario Notte
+    has_date: false
+    has_time: true
+
+input_number:
+  temperatura_giorno:
+    name: Temperatura Giorno
+    min: 15
+    max: 25
+    step: 1
+    mode: box
+  temperatura_notte:
+    name: Temperatura Notte
+    min: 15
+    max: 25
+    step: 1
+    mode: box
+
+automation:
+
+- alias: Automazione termostato
+  trigger:
+  - platform: time
+    at: input_datetime.orario_giorno
+  - platform: time
+    at: input_datetime.orario_notte
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: >
+        {% if trigger.entity_id == 'input_datetime.orario_giorno' %}  
+          {{ states('input_number.temperatura_giorno') | int  }}
+        {% else %}
+          {{ states('input_number.temperatura_notte') | int  }}
+        {% endif %}
+      entity_id: climate.riscaldamento

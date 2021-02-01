@@ -1,0 +1,14 @@
+automation:
+
+- alias: Luce crescente mattina
+  trigger:
+    - platform: time
+      at: '06:00:00'
+  action:
+    - service: python_script.luce_crescente
+      data:
+        entity_id: light.dummy_light
+        delay_in_sec: 10
+        start_level_pct: 0
+        end_level_pct: 100
+        step_in_level_pct: 1
